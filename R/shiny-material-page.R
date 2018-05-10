@@ -21,7 +21,7 @@
 #' )
 #' @export
 material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color = NULL, 
-                          enable_footer = TRUE, footer_content = "NULL",
+                          enable_footer = TRUE, footer_content = NULL, footer_color = NULL,
                           copyright = NULL, background_color = "grey lighten-4", 
                           font_color = NULL, include_fonts = FALSE){
   
@@ -95,28 +95,23 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     # Head --------------------------------------------------------------------
     shiny::tags$head(
       # Fonts
-      # shiny::includeCSS(
-      #   "https://fonts.googleapis.com/icon?family=Material+Icons"
-      # ),
+       shiny::includeCSS(
+         "https://fonts.googleapis.com/icon?family=Material+Icons"
+       ),
       # Source Materialize CSS
       # shiny::includeCSS(
-      #   system.file(paste0("materialize/", materialize_version, "/css/materialize.min.css"),
-      #               package = "shinymaterial"),
-      #   media = "screen,projection"
+      #   system.file(paste0("materialize/", materialize_version, "/css/media-hover-effects.css"),
+      #               package = "shinymaterial")),
+      shiny::includeCSS(
+        system.file(paste0("materialize/", materialize_version, "/css/materialize.min.css"),
+                    package = "shinymaterial")#,
+        #media = "screen,projection"
+      ),
+      # shiny::includeCSS(
+      #   system.file(paste0("materialize/", materialize_version, "/css/style.css"),
+      #               package = "shinymaterial")#,
+      #   #media = "screen,projection"
       # ),
-      shiny::includeCSS(
-        system.file(paste0("materialize/", materialize_version, "/css/media-hover-effects.css"),
-                    package = "shinymaterial")),
-      shiny::includeCSS(
-        system.file(paste0("materialize/", materialize_version, "/css/materialize.css"),
-                    package = "shinymaterial")#,
-        #media = "screen,projection"
-      ),
-      shiny::includeCSS(
-        system.file(paste0("materialize/", materialize_version, "/css/style.css"),
-                    package = "shinymaterial")#,
-        #media = "screen,projection"
-      ),
       shiny::includeCSS(
         system.file("css/shiny-material-page.css",
                     package = "shinymaterial")
@@ -135,8 +130,14 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     
     # footer ------------------------------------------------------------------
     if (enable_footer) {
+      footerCl <- "page-footer"
+      footerCl <- if (!is.null(footer_color)) {
+        footerCl <- paste(footerCl, color)
+      } else {
+        footerCl <- paste(footerCl, "blue")
+      }
       material_footer <- shiny::tags$footer(
-        class = "page-footer",
+        class = footerCl,
         shiny::tags$div(
           class = "container",
           shiny::tags$div(

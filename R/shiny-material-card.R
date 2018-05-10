@@ -70,7 +70,7 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
         shiny::tags$span(
           class = "card-title",
           title,
-          shiny::tags$i(class = "mdi-navigation-close right")
+          shiny::tags$i(class = "material-icons right", "close")
         ),
         shiny::tags$p(extra)
       )

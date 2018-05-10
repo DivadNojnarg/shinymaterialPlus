@@ -2,7 +2,7 @@ library(shiny)
 library(shinymaterial)
 
 # Wrap shinymaterial apps in material_page
-ui <- shinymaterialPlus::material_page(
+ui <- material_page(
   title = "Basic Page",
   tags$h1("Page Content"),
   nav_bar_color = "blue",
@@ -10,7 +10,7 @@ ui <- shinymaterialPlus::material_page(
   material_row(
     material_column(
       width = 6,
-      material_card(
+      shinymaterialPlus::material_card(
         title = "Example Card",
         depth = 5,
         size = "large",

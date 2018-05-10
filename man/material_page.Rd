@@ -5,9 +5,10 @@
 \title{Create a shinymaterial page}
 \usage{
 material_page(..., title = "", nav_bar_fixed = FALSE,
-  nav_bar_color = NULL, enable_footer = TRUE, footer_content = "NULL",
-  copyright = NULL, background_color = "grey lighten-4",
-  font_color = NULL, include_fonts = FALSE)
+  nav_bar_color = NULL, enable_footer = TRUE, footer_content = NULL,
+  footer_color = NULL, copyright = NULL,
+  background_color = "grey lighten-4", font_color = NULL,
+  include_fonts = FALSE)
 }
 \arguments{
 \item{...}{The UI elements to place in the page.}
