@@ -1,6 +1,5 @@
 #' Create profile card
 #'
-#' UI content can be placed in cards.
 #' @param ... Slot for any UI element.
 #' @param id Tag id. Should be unique and correspond to the id provided in material_tabs.
 #' @examples

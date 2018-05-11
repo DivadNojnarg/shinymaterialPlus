@@ -15,7 +15,7 @@
 \item{id}{Tag id. Should be unique and correspond to the id provided in material_tabs.}
 }
 \description{
-UI content can be placed in cards.
+Create profile card
 }
 \examples{
 material_card_tabs(
