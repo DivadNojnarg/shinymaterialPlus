@@ -1,11 +1,20 @@
 #' Create profile card
 #'
-#' @param ... Slot for any UI element.
-#' @param id Tag id. Should be unique and correspond to the id provided in material_tabs.
+#' @param header_background Header background, if any.
+#' @param user_img User image, if any.
+#' @param user_name User name.
+#' @param user_position User job.
+#' @param user_phone User phone number, if any.
+#' @param user_mail User mail adress.
+#' @param date_of_birth User date of birth.
 #' @examples
-#' material_card_tabs(
-#'  id = "tab_1"
-#'  "Content"
+#' material_profile_card(
+#'  header_background = "https://images3.alphacoders.com/601/601818.jpg",
+#'  user_img = "file:///Users/macdavidgranjon/Desktop/materialize-admin-dashboard-master/images/avatar.jpg",
+#'  user_name = "ROger Waters",
+#'  user_position = "Project Manager",
+#'  user_phone = "+1 (612) 222 8989",
+#'  user_adress = "mail@@domain.com"
 #' )
 #' @export
 material_profile_card <- function(header_background = "https://images3.alphacoders.com/601/601818.jpg", 
@@ -14,7 +23,8 @@ material_profile_card <- function(header_background = "https://images3.alphacode
                                   date_of_birth = NULL) {
   shiny::tags$div(
     class = "card",
-    id = "profile_card",
+    id = "profile-card",
+    style = "overflow: hidden;",
     
     # header
     shiny::tags$div(
@@ -25,26 +35,29 @@ material_profile_card <- function(header_background = "https://images3.alphacode
     # card-content
     shiny::tags$div(
       class = "card-content",
-      shiny::img(class = "circle responsive-img activator card-profile-image", src = user_img),
+      shiny::img(
+        class = "circle responsive-img activator card-profile-image cyan lighten-1 padding-2", 
+        src = user_img
+      ),
       shiny::tags$a(
-        class = "btn-floating activator btn-move-up waves-effect waves-light darken-2 right",
-        shiny::tags$i(class = "mdi-action-account-circle")
+        class = "btn-floating activator waves-effect waves-light rec accent-2 right",
+        shiny::tags$i(class = "material-icons", "perm_identity")
       ),
       
       # user infos
       shiny::tags$span(class = "card-title activator grey-text text-darken-4", user_name),
       shiny::tags$p(
-        shiny::tags$i(class = "mdi-action-perm-identity cyan-text text-darken-2"),
+        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "perm_identity"),
         user_position
       ),
       shiny::tags$p(
         shiny::tags$i(
-          class = "mdi-action-perm-phone-msg cyan-text text-darken-2"),
+          class = "material-icons cyan-text text-darken-2", "perm_phone_msg"),
         user_phone
       ),
       shiny::tags$p(
         shiny::tags$i(
-          class = "mdi-communication-email cyan-text text-darken-2"),
+          class = "material-icons cyan-text text-darken-2", "email"),
         user_mail
       )
     ),
@@ -55,22 +68,22 @@ material_profile_card <- function(header_background = "https://images3.alphacode
       shiny::tags$span(
         class = "card-title grey-text text-darken-4", 
         user_name,
-        shiny::tags$i(class = "mdi-navigation-close right")
+        shiny::tags$i(class = "material-icons right", "close")
       ),
       shiny::tags$p(
-        shiny::tags$i(class = "mdi-action-perm-identity cyan-text text-darken-2"),
+        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "perm_identity"),
         user_position
       ),
       shiny::tags$p(
-        shiny::tags$i(class = "mdi-action-perm-phone-msg cyan-text text-darken-2"),
+        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "perm_phone_msg"),
         user_phone
       ),
       shiny::tags$p(
-        shiny::tags$i(class = "mdi-communication-email cyan-text text-darken-2"),
+        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "email"),
         user_mail
       ),
       shiny::tags$p(
-        shiny::tags$i(class = "mdi-social-cake cyan-text text-darken-2"),
+        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "cake"),
         date_of_birth
       )
     )

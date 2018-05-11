@@ -10,16 +10,30 @@
   user_phone = NULL, user_mail = NULL, date_of_birth = NULL)
 }
 \arguments{
-\item{...}{Slot for any UI element.}
+\item{header_background}{Header background, if any.}
 
-\item{id}{Tag id. Should be unique and correspond to the id provided in material_tabs.}
+\item{user_img}{User image, if any.}
+
+\item{user_name}{User name.}
+
+\item{user_position}{User job.}
+
+\item{user_phone}{User phone number, if any.}
+
+\item{user_mail}{User mail adress.}
+
+\item{date_of_birth}{User date of birth.}
 }
 \description{
 Create profile card
 }
 \examples{
-material_card_tabs(
- id = "tab_1"
- "Content"
+material_profile_card(
+ header_background = "https://images3.alphacoders.com/601/601818.jpg",
+ user_img = "file:///Users/macdavidgranjon/Desktop/materialize-admin-dashboard-master/images/avatar.jpg",
+ user_name = "ROger Waters",
+ user_position = "Project Manager",
+ user_phone = "+1 (612) 222 8989",
+ user_adress = "mail@domain.com"
 )
 }

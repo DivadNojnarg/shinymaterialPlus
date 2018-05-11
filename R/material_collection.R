@@ -45,7 +45,7 @@ material_collection <- function(..., header = FALSE) {
 material_collection_item <- function(..., active = FALSE,
                                      secondary_content = NULL) {
   
-  collectionItemCl <- "collection_item"
+  collectionItemCl <- "collection-item"
   if (isTRUE(active)) collectionItemCl <- paste0(collectionItemCl, " active")
   
   shiny::tags$li(

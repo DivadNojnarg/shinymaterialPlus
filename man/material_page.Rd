@@ -6,7 +6,7 @@
 \usage{
 material_page(..., title = "", nav_bar_fixed = FALSE,
   nav_bar_color = NULL, enable_footer = TRUE, footer_content = NULL,
-  footer_color = NULL, copyright = NULL,
+  footer_color = NULL, copyright = NULL, footer_extra = NULL,
   background_color = "grey lighten-4", font_color = NULL,
   include_fonts = FALSE)
 }
@@ -24,6 +24,8 @@ material_page(..., title = "", nav_bar_fixed = FALSE,
 \item{footer_content}{Footer content.}
 
 \item{copyright}{Copyright text in footer.}
+
+\item{footer_extra}{Display additional text on the right of copyrights.}
 
 \item{background_color}{Page background color. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.}
 

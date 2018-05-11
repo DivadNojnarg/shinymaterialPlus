@@ -57,7 +57,7 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
       shiny::tags$span(
         class = if (isTRUE(activator)) "card-title activator" else "card-title",
         title,
-        if (isTRUE(activator)) shiny::tags$i(class = "mdi-navigation-more-vert right", "...")
+        if (isTRUE(activator)) shiny::tags$i(class = "material-icons right", "more_vert")
       ),
       ...
     ),
@@ -75,5 +75,45 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
         shiny::tags$p(extra)
       )
     }
+  )
+}
+
+
+#' Create a card that is horizontally displayed
+#'
+#' UI content can be placed in cards to organize items on a page.
+#' 
+#' @param ... Any element.
+#' @param title Card Title.
+#' @param src Image path, if any.
+#  
+#' @examples
+#' material_card_horizontal(
+#'   src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/21.png",
+#'   title = "Card Title",
+#'   "It is a long established fact that a reader will be distracted 
+#'   by the readable content of a page when looking at its layout. 
+#'   The point of using Lorem Ipsum is that it has a more-or-less 
+#'   normal distribution of letters, as opposed to using 'Content here, 
+#'   Packages and web page editors now use Lorem Ipsum as their default 
+#'   model text, and a search for 'lorem ipsum' will uncover. 
+#'   Web page editors now use Lorem Ipsum as their default"
+#' )
+#' @export
+material_card_horizontal <- function(..., title = NULL, src = NULL) {
+  shiny::tags$div(
+    class = "card horizontal",
+    shiny::tags$div(
+      class = "card-image width-65",
+      shiny::tags$img(src = src)
+    ),
+    shiny::tags$div(
+      class = "car-stacked",
+      shiny::tags$div(
+        class = "card-content",
+        shiny::tags$h5(title),
+        ...
+      )
+    )
   )
 }

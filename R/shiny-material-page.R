@@ -8,6 +8,7 @@
 #' @param enable_footer Whether to display the footer or not. TRUE by default.
 #' @param footer_content Footer content.
 #' @param copyright Copyright text in footer.
+#' @param footer_extra Display additional text on the right of copyrights.
 #' @param background_color Page background color. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.
 #' @param font_color String. The title font color. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors. \emph{Title color requires using word forms of colors (e.g. "deep-purple"). Also, lighten or darken effects do not work on title colors.}
 #' @param include_fonts Boolean. Should the material font files be included? (This will place the font sources in a directory 'www', at the same location as the app code.)
@@ -22,7 +23,7 @@
 #' @export
 material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color = NULL, 
                           enable_footer = TRUE, footer_content = NULL, footer_color = NULL,
-                          copyright = NULL, background_color = "grey lighten-4", 
+                          copyright = NULL, footer_extra = NULL, background_color = "grey lighten-4", 
                           font_color = NULL, include_fonts = FALSE){
   
   materialize_version <- "0.99.0"
@@ -142,14 +143,18 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
           class = "container",
           shiny::tags$div(
             class = "row",
-            footer_content
+            shiny::tags$div(
+              class = "white-text",
+              footer_content
+            )
           )
         ),
         shiny::tags$div(
           class = "footer-copyright",
           shiny::tags$div(
             class = "container",
-            shiny::tags$span(copyright)
+            copyright,
+            shiny::tags$a(class = "grey-text text-lighten-4 right", href = "#!", footer_extra)
           )
         )
       )
