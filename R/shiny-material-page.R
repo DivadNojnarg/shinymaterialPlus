@@ -100,19 +100,15 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
          "https://fonts.googleapis.com/icon?family=Material+Icons"
        ),
       # Source Materialize CSS
-      # shiny::includeCSS(
-      #   system.file(paste0("materialize/", materialize_version, "/css/media-hover-effects.css"),
-      #               package = "shinymaterial")),
       shiny::includeCSS(
         system.file(paste0("materialize/", materialize_version, "/css/materialize.min.css"),
-                    package = "shinymaterial")#,
-        #media = "screen,projection"
+                    package = "shinymaterial"),
+        media = "screen,projection"
       ),
-      # shiny::includeCSS(
-      #   system.file(paste0("materialize/", materialize_version, "/css/style.css"),
-      #               package = "shinymaterial")#,
-      #   #media = "screen,projection"
-      # ),
+      shiny::includeCSS(
+        system.file("css/style.css",
+                    package = "shinymaterialPlus")
+      ),
       shiny::includeCSS(
         system.file("css/shiny-material-page.css",
                     package = "shinymaterial")
@@ -139,6 +135,7 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
       }
       material_footer <- shiny::tags$footer(
         class = footerCl,
+        
         shiny::tags$div(
           class = "container",
           shiny::tags$div(
@@ -149,6 +146,7 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
             )
           )
         ),
+        
         shiny::tags$div(
           class = "footer-copyright",
           shiny::tags$div(
@@ -157,6 +155,7 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
             shiny::tags$a(class = "grey-text text-lighten-4 right", href = "#!", footer_extra)
           )
         )
+        
       )
     },
     
@@ -168,6 +167,10 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     shiny::includeScript(
       system.file("js/shiny-material-page.js",
                   package = "shinymaterial")
+    ),
+    shiny::includeScript(
+      system.file("js/task.js",
+                  package = "shinymaterialPlus")
     ),
     shiny::tags$script("
                        Shiny.addCustomMessageHandler('shinymaterialJS',
