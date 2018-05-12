@@ -12,11 +12,11 @@ ui <- shinymaterialPlus::material_page(
   # Define tabs
   material_tabs(
     tabs = c(
-      "First Tab" = "first_tab",
-      "Second Tab" = "second_tab",
-      "Third Tab" = "third_tab",
-      "Fourth Tab" = "fourth_tab",
-      "Fifth Tab" = "fifth_tab"
+      "Card Extensions" = "first_tab",
+      "Collections" = "second_tab",
+      "Others" = "third_tab",
+      "Collapsibles" = "fourth_tab",
+      "Carousel" = "fifth_tab"
     )
   ),
   
@@ -46,7 +46,7 @@ ui <- shinymaterialPlus::material_page(
           material_badge(content = "Test", color = "red", type = "new"),
           activator = TRUE,
           extra = "More info here!",
-          color = "deep_orange",
+          #color = "deep-orange",
           image = TRUE,
           src = "http://www.oxygenna.com/wp-content/uploads/2015/11/18.jpg"
         ) 
@@ -147,7 +147,51 @@ ui <- shinymaterialPlus::material_page(
           )
           )
       )
+    ),
+    
+    HTML(
+      paste0(
+        '<div class="row">
+        <div class="col s12 m6">
+        <div class="card blue-grey darken-2">
+        <div class="card-content white-text">
+        <span class="card-title">Card Title</span>
+        <p>I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+        <a href="#">This is a link</a>
+        <a href="#">This is a link</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        '
+      )
+    ),
+    
+    
+    # material videos
+    material_row(
+      material_column(
+        width = 6,
+        material_video(
+          src = "http://www.youtube.com/embed/Q8TXgCzxEnw?rel=0",
+          responsive = FALSE,
+          height = "480",
+          width = "853",
+          fullscreen = FALSE
+        )
+      ),
+      material_column(
+        width = 6,
+        material_video(
+          src = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+          responsive = TRUE
+        )
+      )
     )
+    
     
     
   ),
