@@ -190,6 +190,17 @@ ui <- shinymaterialPlus::material_page(
           responsive = TRUE
         )
       )
+    ),
+    
+    # material media
+    material_row(
+      material_column(
+        width = 6,
+        material_media(
+          src = "https://materializecss.com/images/sample-1.jpg",
+          width = "650"
+        )
+      )
     )
     
     
@@ -241,8 +252,58 @@ ui <- shinymaterialPlus::material_page(
       material_column(
         width = 6,
         material_loader()
+      ),
+      
+      # material buttons with pulse and floating
+      material_column(
+        with = 6,
+        shinymaterialPlus::material_button(
+          input_id = "example_button",
+          label = "Button",
+          icon = "cloud",
+          depth = 5,
+          color = "blue lighten-2",
+          pulse = TRUE
+        ),
+        shinymaterialPlus::material_button(
+          input_id = "example_button2",
+          icon = "cloud",
+          label = "",
+          depth = 3,
+          color = "green lighten-2",
+          pulse = TRUE,
+          floating = TRUE
+        ),
+        shinymaterialPlus::material_button(
+          input_id = "example_button3",
+          icon = "cloud",
+          label = "large button",
+          depth = 3,
+          color = "orange lighten-2",
+          size = "large"
+        ),
+        shinymaterialPlus::material_button(
+          input_id = "example_button3",
+          icon = "cloud",
+          label = "Small disabled button",
+          depth = 3,
+          color = "orange lighten-2",
+          size = "small",
+          disabled = TRUE
+        )
+      )
+    ),
+    
+    # material blockquote
+    material_row(
+      material_column(
+        width = 6,
+        material_blockquote(
+          "This is an example quotation that uses the blockquote tag."
+        )
       )
     )
+    
   ),
   
   material_tab_content(
@@ -317,24 +378,24 @@ ui <- shinymaterialPlus::material_page(
     material_row(
       material_column(
         width = 6,
-        # material_carousel(
-        #   material_carousel_item(
-        #     src = "https://cdn4.buysellads.net/uu/1/3386/1525211184-62491.png"
-        #   ),
-        #   material_carousel_item(
-        #     fixed = TRUE,
-        #     src = "https://cdn4.buysellads.net/uu/1/3386/1525211184-62491.png"
-        #   )
-        # )
-        
-        material_discovery_trigger(
-         label = "Open Discovery"
-        ),
-        material_discovery(
-          id = "discovery_1",
-          title = "My discovery",
-          description = "A bunch of text"
+        material_carousel(
+          material_carousel_item(
+            src = "https://cdn4.buysellads.net/uu/1/3386/1525211184-62491.png"
+          ),
+          material_carousel_item(
+            fixed = TRUE,
+            src = "https://cdn4.buysellads.net/uu/1/3386/1525211184-62491.png"
+          )
         )
+        
+        # material_discovery_trigger(
+        #  label = "Open Discovery"
+        # ),
+        # material_discovery(
+        #   id = "discovery_1",
+        #   title = "My discovery",
+        #   description = "A bunch of text"
+        # )
         
       )
     )

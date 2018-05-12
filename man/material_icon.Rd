@@ -5,7 +5,7 @@
 \title{Create a material icon}
 \usage{
 material_icon(name, circle = FALSE, color = NULL, position = NULL,
-  closable = FALSE)
+  closable = FALSE, size = NULL)
 }
 \arguments{
 \item{name}{Icon to display. Choose here: https://materializecss.com/icons.html.}
@@ -14,9 +14,11 @@ material_icon(name, circle = FALSE, color = NULL, position = NULL,
 
 \item{color}{Icon color. Use when circle is TRUE. Visit http://materializecss.com/color.html for a list of available colors.}
 
-\item{position}{Icon position. NULL or "right".}
+\item{position}{Icon position. NULL, "right" or "left".}
 
 \item{closable}{Whether the icon is closable or not. Perfect to be insert in material_chip.}
+
+\item{size}{Icon size: "tiny", "small", "medium" or "large".}
 }
 \description{
 Create a material icon

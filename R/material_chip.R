@@ -1,6 +1,6 @@
 #' Create a material badge (chip)
 #'
-#' @param Any element such as material_icon...
+#' @param ... Any element such as material_icon...
 #' @param src Image path or url, if any.
 #' @param chip_name Chip name.
 #' 

@@ -7,11 +7,11 @@
 material_chip(..., src = NULL, chip_name = NULL)
 }
 \arguments{
+\item{...}{Any element such as material_icon...}
+
 \item{src}{Image path or url, if any.}
 
 \item{chip_name}{Chip name.}
-
-\item{Any}{element such as material_icon...}
 }
 \description{
 Create a material badge (chip)
