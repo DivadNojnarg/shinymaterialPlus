@@ -110,6 +110,10 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
                     package = "shinymaterialPlus")
       ),
       shiny::includeCSS(
+        system.file("css/timeline.css",
+                    package = "shinymaterialPlus")
+      ),
+      shiny::includeCSS(
         system.file("css/shiny-material-page.css",
                     package = "shinymaterial")
       ),

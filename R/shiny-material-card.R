@@ -108,11 +108,11 @@ material_card_horizontal <- function(..., title = NULL, src = NULL) {
       shiny::tags$img(src = src)
     ),
     shiny::tags$div(
-      class = "car-stacked",
+      class = "card-stacked",
       shiny::tags$div(
         class = "card-content",
         shiny::tags$h5(title),
-        ...
+        shiny::tags$p(...)
       )
     )
   )

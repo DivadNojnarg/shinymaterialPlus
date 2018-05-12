@@ -45,20 +45,22 @@ material_profile_card <- function(header_background = "https://images3.alphacode
       ),
       
       # user infos
-      shiny::tags$span(class = "card-title activator grey-text text-darken-4", user_name),
-      shiny::tags$p(
-        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "perm_identity"),
-        user_position
-      ),
-      shiny::tags$p(
-        shiny::tags$i(
-          class = "material-icons cyan-text text-darken-2", "perm_phone_msg"),
-        user_phone
-      ),
-      shiny::tags$p(
-        shiny::tags$i(
-          class = "material-icons cyan-text text-darken-2", "email"),
-        user_mail
+      userinfoTag <- shiny::tagList(
+        shiny::tags$span(class = "card-title activator grey-text text-darken-4", user_name),
+        shiny::tags$p(
+          shiny::tags$i(class = "material-icons cyan-text text-darken-2", "perm_identity"),
+          user_position
+        ),
+        shiny::tags$p(
+          shiny::tags$i(
+            class = "material-icons cyan-text text-darken-2", "perm_phone_msg"),
+          user_phone
+        ),
+        shiny::tags$p(
+          shiny::tags$i(
+            class = "material-icons cyan-text text-darken-2", "email"),
+          user_mail
+        )
       )
     ),
     

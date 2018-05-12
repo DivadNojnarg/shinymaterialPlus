@@ -6,7 +6,7 @@ Author: David Granjon
 Maintainer: David Granjon <dgranjon@ymail.com>
 Description: Extend 'shinymaterial' with extra 'materialize' elements
     such as card reveals, ...
-License: GPL-3
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
