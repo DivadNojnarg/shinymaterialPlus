@@ -114,6 +114,14 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
                     package = "shinymaterialPlus")
       ),
       shiny::includeCSS(
+        system.file("css/media-hover-effects.css",
+                    package = "shinymaterialPlus")
+      ),
+      shiny::includeCSS(
+        system.file("css/magnific-popup.css",
+                    package = "shinymaterialPlus")
+      ),
+      shiny::includeCSS(
         system.file("css/shiny-material-page.css",
                     package = "shinymaterial")
       ),
@@ -176,6 +184,23 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
       system.file("js/task.js",
                   package = "shinymaterialPlus")
     ),
+    shiny::includeScript(
+      system.file("js/masonry.pkgd.min.js",
+                  package = "shinymaterialPlus")
+    ),
+    shiny::includeScript(
+      system.file("js/imagesloaded.pkgd.min.js",
+                  package = "shinymaterialPlus")
+    ),
+    shiny::includeScript(
+      system.file("js/jquery.magnific-popup.min.js",
+                  package = "shinymaterialPlus")
+    ),
+    shiny::includeScript(
+      system.file("js/media-hover-effects.js",
+                  package = "shinymaterialPlus")
+    ),
+    
     shiny::tags$script("
                        Shiny.addCustomMessageHandler('shinymaterialJS',
                        function(code) {

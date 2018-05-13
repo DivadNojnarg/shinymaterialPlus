@@ -17,6 +17,7 @@ ui <- shinymaterialPlus::material_page(
   
   # Define tabs
   material_tabs(
+    color = "orange",
     tabs = c(
       "Card Extensions" = "first_tab",
       "Collections" = "second_tab",
@@ -461,7 +462,50 @@ ui <- shinymaterialPlus::material_page(
         </div>
         </div>'
       )
+    ),
+    
+    # only works if elements are wrapped in <div class="col s12 m6 grid">...</div>
+    material_row(
+      HTML(
+        paste0(
+          '<div class="col s12 m6 grid">
+          <figure class="effect-lily">
+          <img src="https://pixinvent.com/materialize-material-design-admin-template/images/gallary/5.png">
+          <figcaption>
+          <div>
+          <h2> "Nice "
+          <span>Lily</span>
+          </h2>
+          <p> Lily likes to play with crayons and pencils</p>
+          </div>
+          <a href="#">View more</a>
+          </figcaption>
+          </figure>
+          </div>
+          '
+        )
+      ),
+      
+      HTML(
+        paste0(
+          '<div class="col s12 m6 grid">
+          <figure class="effect-layla">
+          <img src="https://www.sammobile.com/wp-content/uploads/2017/05/Redscape.png">
+          <figcaption>
+          <h2> "Crazy "
+          <span>Layla</span>
+          </h2>
+          <p> When Layla appears, she brings an eternal summer along.</p>
+          <a href="#">View more</a>
+          </figcaption>
+          </figure>
+          </div>
+          '
+        )
+        )
+      
     )
+    
     
     # HTML(
     #   paste0(
