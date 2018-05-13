@@ -1,6 +1,7 @@
 #' Create a material gallery
 #'
 #' @param ... Slot for material_gallery_item.
+#' @param fullscreen Whether to display in a fullscreen mode.
 #' 
 #' @examples
 #' material_gallery(
@@ -18,9 +19,9 @@
 #'  )
 #' )
 #' @export
-material_gallery <- function(...) {
+material_gallery <- function(..., fullscreen = FALSE) {
   shiny::tags$div(
-    class = "slider",
+    class = if (isTRUE(fullscreen)) "slider fullscreen" else "slider",
     shiny::tags$ul(
       class = "slides",
       ...

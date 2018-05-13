@@ -4,10 +4,12 @@
 \alias{material_gallery}
 \title{Create a material gallery}
 \usage{
-material_gallery(...)
+material_gallery(..., fullscreen = FALSE)
 }
 \arguments{
 \item{...}{Slot for material_gallery_item.}
+
+\item{fullscreen}{Whether to display in a fullscreen mode.}
 }
 \description{
 Create a material gallery

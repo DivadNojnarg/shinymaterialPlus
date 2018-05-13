@@ -633,6 +633,7 @@ ui <- shinymaterialPlus::material_page(
       material_column(
         width = 6,
         material_gallery(
+          fullscreen = FALSE,
           material_gallery_item(
             src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/22.png",
             "A beautiful image"
