@@ -7,6 +7,8 @@
 #' @param user_phone User phone number, if any.
 #' @param user_mail User mail adress.
 #' @param date_of_birth User date of birth.
+#' @param extra User extra infos, if any.
+#' 
 #' @examples
 #' material_profile_card(
 #'  header_background = "https://images3.alphacoders.com/601/601818.jpg",
@@ -20,7 +22,7 @@
 material_profile_card <- function(header_background = "https://images3.alphacoders.com/601/601818.jpg", 
                                   user_img = NULL, user_name = NULL, user_position = NULL,
                                   user_phone = NULL, user_mail = NULL,
-                                  date_of_birth = NULL) {
+                                  date_of_birth = NULL, extra = NULL) {
   shiny::tags$div(
     class = "card",
     id = "profile-card",
@@ -40,8 +42,8 @@ material_profile_card <- function(header_background = "https://images3.alphacode
         src = user_img
       ),
       shiny::tags$a(
-        class = "btn-floating activator waves-effect waves-light rec accent-2 right",
-        shiny::tags$i(class = "material-icons", "perm_identity")
+        class = "btn-floating pulse activator waves-effect waves-light rec accent-2 right",
+        material_icon(name = "perm_identity")
       ),
       
       # user infos
@@ -60,6 +62,10 @@ material_profile_card <- function(header_background = "https://images3.alphacode
           shiny::tags$i(
             class = "material-icons cyan-text text-darken-2", "email"),
           user_mail
+        ),
+        shiny::tags$p(
+          shiny::tags$i(class = "material-icons cyan-text text-darken-2", "cake"),
+          date_of_birth
         )
       )
     ),
@@ -69,24 +75,8 @@ material_profile_card <- function(header_background = "https://images3.alphacode
       class = "card-reveal",
       shiny::tags$span(
         class = "card-title grey-text text-darken-4", 
-        user_name,
+        extra,
         shiny::tags$i(class = "material-icons right", "close")
-      ),
-      shiny::tags$p(
-        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "perm_identity"),
-        user_position
-      ),
-      shiny::tags$p(
-        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "perm_phone_msg"),
-        user_phone
-      ),
-      shiny::tags$p(
-        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "email"),
-        user_mail
-      ),
-      shiny::tags$p(
-        shiny::tags$i(class = "material-icons cyan-text text-darken-2", "cake"),
-        date_of_birth
       )
     )
     

@@ -16,6 +16,9 @@ material_card_horizontal(..., title = NULL, src = NULL)
 \description{
 UI content can be placed in cards to organize items on a page.
 }
+\note{
+Render well if embeded in a material_column of width 12.
+}
 \examples{
 material_card_horizontal(
   src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/21.png",

@@ -16,3 +16,24 @@
           $(el).next().css('text-decoration', 'line-through'); //or addClass
       }    
   }
+  
+  
+  
+    function getCollapseIndex() {
+      $("#slide-out > li > ul > li > a.collapsible-header").each(function(index) {
+        if ($(this).parent().hasClass('active')) {
+          openIndex = index;
+        }
+      });
+    }
+    
+    
+    // Materialize Slider
+    $('.slider').slider({
+      full_width: true
+    });
+
+
+
+
+

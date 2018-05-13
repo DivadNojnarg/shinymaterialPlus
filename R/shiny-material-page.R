@@ -181,7 +181,7 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
                   package = "shinymaterial")
     ),
     shiny::includeScript(
-      system.file("js/task.js",
+      system.file("js/plugins.js",
                   package = "shinymaterialPlus")
     ),
     shiny::includeScript(

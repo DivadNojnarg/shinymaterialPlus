@@ -86,6 +86,8 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
 #' @param ... Any element.
 #' @param title Card Title.
 #' @param src Image path, if any.
+#' 
+#' @note Render well if embeded in a material_column of width 12.
 #  
 #' @examples
 #' material_card_horizontal(

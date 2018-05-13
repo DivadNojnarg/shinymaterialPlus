@@ -7,7 +7,8 @@
 
   material_profile_card(header_background = "https://images3.alphacoders.com/601/601818.jpg",
   user_img = NULL, user_name = NULL, user_position = NULL,
-  user_phone = NULL, user_mail = NULL, date_of_birth = NULL)
+  user_phone = NULL, user_mail = NULL, date_of_birth = NULL,
+  extra = NULL)
 }
 \arguments{
 \item{header_background}{Header background, if any.}
@@ -23,6 +24,8 @@
 \item{user_mail}{User mail adress.}
 
 \item{date_of_birth}{User date of birth.}
+
+\item{extra}{User extra infos, if any.}
 }
 \description{
 Create profile card
