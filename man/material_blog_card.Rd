@@ -5,7 +5,8 @@
 \title{Create blog card}
 \usage{
 material_blog_card(..., src = NULL, author_name = NULL, post_title = NULL,
-  date = NULL, media = NULL, extra = NULL, icon = "info")
+  date = NULL, media = NULL, extra = NULL, icon = "info",
+  depth = NULL, hoverable = FALSE)
 }
 \arguments{
 \item{...}{Any element}
@@ -23,6 +24,10 @@ material_blog_card(..., src = NULL, author_name = NULL, post_title = NULL,
 \item{extra}{Extra content, if any. Displayed below the media.}
 
 \item{icon}{Post icon, if any.}
+
+\item{depth}{Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.}
+
+\item{hoverable}{Whether to hover the card. TRUE by default.}
 }
 \description{
 Create blog card

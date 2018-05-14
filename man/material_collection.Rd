@@ -4,12 +4,14 @@
 \alias{material_collection}
 \title{Create a collection}
 \usage{
-material_collection(..., header = FALSE)
+material_collection(..., header = FALSE, depth = NULL)
 }
 \arguments{
 \item{...}{slot for material_collection_item or material_collection_header or material_collection_avatar.}
 
 \item{header}{Whether to enable material_collection_header. FALSE by default.}
+
+\item{depth}{Collection depth. Value between 0 and 5.}
 }
 \description{
 Create a collection

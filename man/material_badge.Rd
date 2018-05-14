@@ -4,7 +4,8 @@
 \alias{material_badge}
 \title{Create a badge}
 \usage{
-material_badge(content, type = NULL, color = NULL, custom_caption = FALSE)
+material_badge(content = NULL, type = NULL, color = NULL,
+  custom_caption = FALSE)
 }
 \arguments{
 \item{content}{Badge content.}

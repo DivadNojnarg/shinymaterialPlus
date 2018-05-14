@@ -4,6 +4,8 @@
 #' @param title Task card title.
 #' @param date Task card date.
 #' @param color Task header color.
+#' @param depth Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.
+#' @param hoverable Whether to hover the card. TRUE by default.
 #' 
 #' @examples
 #' material_task_card(
@@ -30,10 +32,17 @@
 #'   )
 #' )
 #' @export
-material_task_card <- function(..., title = NULL, date = NULL, color = NULL) {
+material_task_card <- function(..., title = NULL, date = NULL, 
+                               color = NULL, depth = NULL, 
+                               hoverable = FALSE) {
+  
+  cl <- "collection with-header"
+  if (!is.null(depth)) cl <- paste0(cl, " z-depth-", depth)
+  if (isTRUE(hoverable)) cl <- paste(cl, "hoverable")
+  
   shiny::tags$ul(
     id = "task-card",
-    class = "collection with-header",
+    class = cl,
     shiny::tags$li(
       class = paste("collection-header", color),
       shiny::tags$h4(class = "task-card-title", title),

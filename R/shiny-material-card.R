@@ -31,7 +31,7 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
   cl <- "card"
   if (isTRUE(hoverable)) cl <- paste(cl, "hoverable")
   if (!is.null(size)) cl <- paste(cl, size)
-  if (!is.null(depth)) cl <- paste(cl, " z-depth-", depth)
+  if (!is.null(depth)) cl <- paste0(cl, " z-depth-", depth)
   if (!is.null(color)) cl <- paste(cl, color)
 
   shiny::tags$div(
@@ -97,6 +97,8 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
 #' @param ... Any element.
 #' @param title Card Title.
 #' @param src Image path, if any.
+#' @param depth Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.
+#' @param hoverable Whether to hover the card. TRUE by default.
 #' 
 #' @note Render well if embeded in a material_column of width 12.
 #  
@@ -113,9 +115,15 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
 #'   Web page editors now use Lorem Ipsum as their default"
 #' )
 #' @export
-material_card_horizontal <- function(..., title = NULL, src = NULL) {
+material_card_horizontal <- function(..., title = NULL, src = NULL,
+                                     depth = NULL, hoverable = FALSE) {
+  
+  cl <- "card horizontal"
+  if (!is.null(depth)) cl <- paste0(cl, " z-depth-", depth)
+  if (isTRUE(hoverable)) cl <- paste(cl, "hoverable")
+  
   shiny::tags$div(
-    class = "card horizontal",
+    class = cl,
     shiny::tags$div(
       class = "card-image width-65",
       shiny::tags$img(src = src)

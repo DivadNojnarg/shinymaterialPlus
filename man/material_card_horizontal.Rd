@@ -4,7 +4,8 @@
 \alias{material_card_horizontal}
 \title{Create a card that is horizontally displayed}
 \usage{
-material_card_horizontal(..., title = NULL, src = NULL)
+material_card_horizontal(..., title = NULL, src = NULL, depth = NULL,
+  hoverable = FALSE)
 }
 \arguments{
 \item{...}{Any element.}
@@ -12,6 +13,10 @@ material_card_horizontal(..., title = NULL, src = NULL)
 \item{title}{Card Title.}
 
 \item{src}{Image path, if any.}
+
+\item{depth}{Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.}
+
+\item{hoverable}{Whether to hover the card. TRUE by default.}
 }
 \description{
 UI content can be placed in cards to organize items on a page.

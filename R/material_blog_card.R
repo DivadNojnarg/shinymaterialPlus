@@ -8,6 +8,8 @@
 #' @param media Media content. Can be an image and/or video.
 #' @param extra Extra content, if any. Displayed below the media.
 #' @param icon Post icon, if any.
+#' @param depth Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.
+#' @param hoverable Whether to hover the card. TRUE by default.
 #' 
 #' @note Be careful: all video should have the embed attribut such as https://www.youtube.com/embed/10r9ozshGVE.
 #' Otherwise they will no render.
@@ -37,10 +39,16 @@
 #' @export
 material_blog_card <- function(..., src = NULL, author_name = NULL, 
                                post_title = NULL, date = NULL, media = NULL, 
-                               extra = NULL, icon = "info") {
+                               extra = NULL, icon = "info", depth = NULL, 
+                               hoverable = FALSE) {
+  
+  cl <- "card"
+  if (!is.null(depth)) cl <- paste0(cl, " z-depth-", depth)
+  if (isTRUE(hoverable)) cl <- paste(cl, "hoverable")
+  
   shiny::tags$div(
     id = "profile-page-wall-post",
-    class = "card",
+    class = cl,
     
     shiny::tags$div(
       class = "card-profile-title",

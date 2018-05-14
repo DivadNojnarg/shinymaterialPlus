@@ -23,7 +23,7 @@ ui <- shinymaterialPlus::material_page(
       "Collections" = "second_tab",
       "Others" = "third_tab",
       "Collapsibles" = "fourth_tab",
-      "Carousel" = "fifth_tab",
+      "Timeline" = "fifth_tab",
       "Media" = "sixth_tab"
     )
   ),
@@ -38,7 +38,7 @@ ui <- shinymaterialPlus::material_page(
         width = 6,
         shinymaterialPlus::material_card(
           title = "Example Card",
-          depth = 5,
+          depth = NULL,
           size = "large",
           tabs = TRUE,
           tabscontent = material_tabs(
@@ -64,6 +64,7 @@ ui <- shinymaterialPlus::material_page(
       material_column(
         width = 6,
         material_profile_card(
+          depth = 5,
           header_background = "https://images3.alphacoders.com/601/601818.jpg",
           user_img = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
           user_name = "Roger Waters",
@@ -81,12 +82,12 @@ ui <- shinymaterialPlus::material_page(
         width = 6,
         shinymaterialPlus::material_card(
           title = "Card with footer",
-          depth = 4,
+          depth = NULL,
           size = "large",
           activator = TRUE,
           extra = "More info here!",
           image = TRUE,
-          src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq7RZOVorlXjMqaZNwzQmSs9t8Jaa-5tx-tR6fPhE-3O5Q5omB",
+          src = "https://i.pinimg.com/originals/73/38/6e/73386e0513d4c02a4fbb814cadfba655.jpg",
           footer = tagList(
             material_row(
               material_column(
@@ -110,6 +111,7 @@ ui <- shinymaterialPlus::material_page(
         width = 12,
         # horizontal card
         material_card_horizontal(
+          hoverable = TRUE,
           src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/21.png",
           title = "Card Title",
           "It is a long established fact that a reader will be distracted 
@@ -127,6 +129,7 @@ ui <- shinymaterialPlus::material_page(
       material_column(
         width = 6,
         material_blog_card(
+          hoverable = TRUE,
           src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
           author_name = "Jean Eude",
           post_title = "My Post",
@@ -185,6 +188,7 @@ ui <- shinymaterialPlus::material_page(
       material_column(
         width = 6,
         material_task_card(
+          depth = 5,
           title = "Task Card",
           date = "14 may 2018",
           color = "cyan",
@@ -218,61 +222,25 @@ ui <- shinymaterialPlus::material_page(
         )
       )
       
+    ),
+    
+    material_row(
+      material_column(
+        width = 6,
+        shiny::tags$div(
+          class ="card gradient-shadow gradient-45deg-light-blue-cyan border-radius-3",
+          shiny::tags$div(
+            class = "card-content center",
+            shiny::tags$img(
+              class = "width-40 border-round z-depth-5",
+              src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/apple-watch.png"
+            ),
+            shiny::tags$h5(class = "white-text lighten-4", "50% Off"),
+            shiny::tags$p(class = "white-text lighten-4", "On apple watch")
+          )
+        )
+      )
     )
-
-    # HTML(
-    #   paste0(
-    #     '<!-- profile-page-header -->
-    #         <div id="profile-page-header" class="card">
-    #     <div class="card-image waves-effect waves-block waves-light">
-    #     <img class="activator" src="https://pixinvent.com/materialize-material-design-admin-template/images/gallary/23.png" alt="user background">                    
-    #     </div>
-    #     <figure class="card-profile-image">
-    #     <img src="https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png" alt="profile image" class="circle z-depth-2 responsive-img activator">
-    #     </figure>
-    #     <div class="card-content">
-    #     <div class="row">                    
-    #     <div class="col s3 offset-s2">                        
-    #     <h4 class="card-title grey-text text-darken-4">Roger Waters</h4>
-    #     <p class="medium-small grey-text">Project Manager</p>                        
-    #     </div>
-    #     <div class="col s2 center-align">
-    #     <h4 class="card-title grey-text text-darken-4">10+</h4>
-    #     <p class="medium-small grey-text">Work Experience</p>                        
-    #     </div>
-    #     <div class="col s2 center-align">
-    #     <h4 class="card-title grey-text text-darken-4">6</h4>
-    #     <p class="medium-small grey-text">Completed Projects</p>                        
-    #     </div>                    
-    #     <div class="col s2 center-align">
-    #     <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
-    #     <p class="medium-small grey-text">Busness Profit</p>                        
-    #     </div>                    
-    #     <div class="col s1 right-align">
-    #     <a class="btn-floating activator waves-effect waves-light darken-2 right">
-    #     <i class="mdi-action-perm-identity"></i>
-    #     </a>
-    #     </div>
-    #     </div>
-    #     </div>
-    #     <div class="card-reveal">
-    #     <p>
-    #     <span class="card-title grey-text text-darken-4">Roger Waters <i class="mdi-navigation-close right"></i></span>
-    #     <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Project Manager</span>
-    #     </p>
-    #     
-    #     <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-    #     
-    #     <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
-    #     <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
-    #     <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
-    #     <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
-    #     </div>
-    #     </div>
-    #     <!--/ profile-page-header -->
-    #     '
-    #   )
-    # )
     
   ),
   
@@ -294,7 +262,37 @@ ui <- shinymaterialPlus::material_page(
             "This item is active",
             secondary_content = material_badge(
               content = "Secondary content", 
-              color = "red"
+              color = "red",
+              type = "new"
+            )
+          ),
+          material_collection_item(
+            active = FALSE,
+            "This item is not active",
+            secondary_content = HTML(paste0('<i class="material-icons">send</i>'))
+          ),
+          material_collection_avatar(
+            src = "https://materializecss.com/images/yuna.jpg",
+            title = "Avatar Item",
+            content = "This is an avatar item"
+          )
+        )
+      ),
+      material_column(
+        width = 6,
+        material_collection(
+          header = TRUE,
+          depth = 5,
+          material_collection_header(
+            title = "This is a collection with depth 5"
+          ),
+          material_collection_item(
+            active = FALSE,
+            "This item is active",
+            secondary_content = material_badge(
+              content = "Secondary content", 
+              color = "red",
+              type = "new"
             )
           ),
           material_collection_item(
@@ -309,6 +307,7 @@ ui <- shinymaterialPlus::material_page(
           )
         )
       )
+      
     )
   ),
   
@@ -479,88 +478,36 @@ ui <- shinymaterialPlus::material_page(
   
   material_tab_content(
     tab_id = "fifth_tab",
-    tags$h3("Material Carousel"),
+    tags$h3("Material timeline"),
     
     # Material carousel
     material_row(
       material_column(
         width = 6,
-        material_carousel(
-          material_carousel_item(
-            src = "https://cdn4.buysellads.net/uu/1/3386/1525211184-62491.png"
+        material_timeline(
+          material_timeline_item(
+            material_timeline_card(
+              src = "https://i.pinimg.com/originals/df/0a/3e/df0a3e2ec30abb1c92d145ef165b714f.gif",
+              depth = 5,
+              title = "Item 1",
+              extra = "Some text here!"
+            ),
+            marker_icon = "language",
+            marker_color = "blue",
+            marker_size = "large"
           ),
-          material_carousel_item(
-            fixed = TRUE,
-            src = "https://cdn4.buysellads.net/uu/1/3386/1525211184-62491.png"
+          material_timeline_item(
+            material_timeline_card(
+              src = "https://kulturologia.ru/files/u12645/Rhads-2.jpg",
+              hoverable = TRUE,
+              title = "Item 2",
+              extra = "Some text here!"
+            ),
+            marker_icon = "work",
+            marker_color = "green",
+            marker_size = "small"
           )
         )
-        
-        # material_discovery_trigger(
-        #  label = "Open Discovery"
-        # ),
-        # material_discovery(
-        #   id = "discovery_1",
-        #   title = "My discovery",
-        #   description = "A bunch of text"
-        # )
-        
-      )
-    ),
-    
-    HTML(
-      paste0(
-        '<div class="container">
-    <div class="timeline">
-        <div class="timeline-event">
-        <div class="card timeline-content">
-        <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="http://img11.hostingpics.net/pics/681702481.jpg">
-        </div>
-        <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-        <p>Content <a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
-        </div>
-        <div class="timeline-badge blue white-text"><i class="material-icons">language</i></div>
-        </div>
-        <div class="timeline-event">
-        <div class="card timeline-content">
-        <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="http://img11.hostingpics.net/pics/949190532.jpg">
-        </div>
-        <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-        <p>Content <a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
-        </div>
-        <div class="timeline-badge red white-text"><i class="material-icons">work</i></div>
-        </div>
-        <div class="timeline-event">
-        <div class="card timeline-content">
-        <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="http://img11.hostingpics.net/pics/512562623.jpg">
-        </div>
-        <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Tile<i class="material-icons right">more_vert</i></span>
-        <p>Content <a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
-        </div>
-        <div class="timeline-badge green white-text"><i class="material-icons">person</i></div>
-        </div>
-        </div>
-        </div>'
       )
     )
     

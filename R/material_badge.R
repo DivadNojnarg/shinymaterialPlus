@@ -11,7 +11,7 @@
 #'  type = "new"
 #' )
 #' @export
-material_badge <- function(content, type = NULL, color = NULL,
+material_badge <- function(content = NULL, type = NULL, color = NULL,
                            custom_caption = FALSE) {
   cl <- "badge"
   if (!is.null(type)) cl <- paste(type, cl)

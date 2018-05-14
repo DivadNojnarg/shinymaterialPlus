@@ -4,7 +4,8 @@
 \alias{material_task_card}
 \title{Create a material task card}
 \usage{
-material_task_card(..., title = NULL, date = NULL, color = NULL)
+material_task_card(..., title = NULL, date = NULL, color = NULL,
+  depth = NULL, hoverable = FALSE)
 }
 \arguments{
 \item{...}{Slot for material_task_item.}
@@ -14,6 +15,10 @@ material_task_card(..., title = NULL, date = NULL, color = NULL)
 \item{date}{Task card date.}
 
 \item{color}{Task header color.}
+
+\item{depth}{Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.}
+
+\item{hoverable}{Whether to hover the card. TRUE by default.}
 }
 \description{
 Create a material task card

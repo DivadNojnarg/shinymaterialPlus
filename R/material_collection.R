@@ -2,6 +2,8 @@
 #'
 #' @param ... slot for material_collection_item or material_collection_header or material_collection_avatar.
 #' @param header Whether to enable material_collection_header. FALSE by default.
+#' @param depth Collection depth. Value between 0 and 5.
+#' 
 #' @examples
 #' material_collection(
 #'   header = TRUE,
@@ -23,10 +25,11 @@
 #'   )
 #' )
 #' @export
-material_collection <- function(..., header = FALSE) {
+material_collection <- function(..., header = FALSE, depth = NULL) {
   
   collectionCl <- "collection"
   if (isTRUE(header)) collectionCl <- paste0(collectionCl, " with-header")
+  if (!is.null(depth)) collectionCl <- paste0(collectionCl, " z-depth-", depth)
   
   shiny::tags$ul(
     class = collectionCl,

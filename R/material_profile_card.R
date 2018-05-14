@@ -8,6 +8,8 @@
 #' @param user_mail User mail adress.
 #' @param date_of_birth User date of birth.
 #' @param extra User extra infos, if any.
+#' @param depth Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.
+#' @param hoverable Whether to hover the card. FALSE by default.
 #' 
 #' @examples
 #' material_profile_card(
@@ -21,10 +23,15 @@
 #' @export
 material_profile_card <- function(header_background = "https://images3.alphacoders.com/601/601818.jpg", 
                                   user_img = NULL, user_name = NULL, user_position = NULL,
-                                  user_phone = NULL, user_mail = NULL,
-                                  date_of_birth = NULL, extra = NULL) {
+                                  user_phone = NULL, user_mail = NULL, date_of_birth = NULL, 
+                                  extra = NULL, depth = NULL, hoverable = FALSE) {
+  
+  cl <- "card"
+  if (!is.null(depth)) cl <- paste0(cl, " z-depth-", depth)
+  if (isTRUE(hoverable)) cl <- paste(cl, "hoverable")
+  
   shiny::tags$div(
-    class = "card",
+    class = cl,
     id = "profile-card",
     style = "overflow: hidden;",
     

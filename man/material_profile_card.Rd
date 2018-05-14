@@ -8,7 +8,7 @@
   material_profile_card(header_background = "https://images3.alphacoders.com/601/601818.jpg",
   user_img = NULL, user_name = NULL, user_position = NULL,
   user_phone = NULL, user_mail = NULL, date_of_birth = NULL,
-  extra = NULL)
+  extra = NULL, depth = NULL, hoverable = FALSE)
 }
 \arguments{
 \item{header_background}{Header background, if any.}
@@ -26,6 +26,10 @@
 \item{date_of_birth}{User date of birth.}
 
 \item{extra}{User extra infos, if any.}
+
+\item{depth}{Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.}
+
+\item{hoverable}{Whether to hover the card. FALSE by default.}
 }
 \description{
 Create profile card
