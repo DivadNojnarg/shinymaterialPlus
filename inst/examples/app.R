@@ -184,6 +184,8 @@ ui <- shinymaterialPlus::material_page(
       )
     ),
     
+    
+    # material task card
     material_row(
       material_column(
         width = 6,
@@ -224,6 +226,46 @@ ui <- shinymaterialPlus::material_page(
       
     ),
     
+    
+    # material stat cards
+    material_row(
+      material_column(
+        width = 4,
+        material_stat_card(
+          title = "New Clients",
+          icon = "add_box",
+          value = 566,
+          trend = "more",
+          subtitle = "15% from yesterday",
+          color = "green"
+        )
+      ),
+      material_column(
+        width = 4,
+        material_stat_card(
+          title = "New invoice",
+          icon = "assignment",
+          value = 12,
+          trend = "less",
+          subtitle = "3% from yesterday",
+          color = "purple"
+        )
+      ),
+      material_column(
+        width = 4,
+        material_stat_card(
+          title = "Costs",
+          icon = "add_shopping_cart",
+          value = 2345,
+          trend = "equal",
+          subtitle = "same as yesterday",
+          color = "pink"
+        )
+      )
+    ),
+    
+    
+    # material gradient card
     material_row(
       material_column(
         width = 4,
@@ -254,6 +296,8 @@ ui <- shinymaterialPlus::material_page(
       )
     ),
     
+    
+    # material info card
     material_row(
       material_column(
         width = 4,

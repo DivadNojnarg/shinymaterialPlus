@@ -34,8 +34,3 @@ material_gradient_card <- function(title = NULL, subtitle = NULL, src = NULL,
     )
   )
 }
-
-
-
-""
-"On apple watch"
