@@ -6,7 +6,7 @@
 \usage{
 material_card(title, ..., size = "medium", depth = NULL, image = FALSE,
   src = NULL, activator = FALSE, tabs = FALSE, tabscontent = NULL,
-  extra = NULL, color = NULL, hoverable = TRUE)
+  extra = NULL, color = NULL, hoverable = TRUE, footer = NULL)
 }
 \arguments{
 \item{title}{String. The title of the card.}
@@ -32,6 +32,8 @@ material_card(title, ..., size = "medium", depth = NULL, image = FALSE,
 \item{color}{String. The card color. Leave empty for the default color. Visit http://materializecss.com/color.html for a list of available colors.}
 
 \item{hoverable}{Whether to hover the card. TRUE by default.}
+
+\item{footer}{Footer content, if any.}
 }
 \description{
 UI content can be placed in cards to organize items on a page.

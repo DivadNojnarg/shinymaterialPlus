@@ -13,6 +13,8 @@
 #' @param extra Card reveal content if any.
 #' @param color String. The card color. Leave empty for the default color. Visit http://materializecss.com/color.html for a list of available colors.
 #' @param hoverable Whether to hover the card. TRUE by default.
+#' @param footer Footer content, if any.
+#' 
 #' @examples
 #' material_card(
 #'   title = "Example Card",
@@ -23,7 +25,7 @@
 material_card <- function(title, ..., size = "medium", depth = NULL, 
                           image = FALSE, src = NULL, activator = FALSE, 
                           tabs = FALSE, tabscontent = NULL, extra = NULL, 
-                          color = NULL, hoverable = TRUE){
+                          color = NULL, hoverable = TRUE, footer = NULL){
   
   
   cl <- "card"
@@ -74,7 +76,16 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
         ),
         shiny::tags$p(extra)
       )
+    },
+    
+    # footer
+    if (!is.null(footer)) {
+      shiny::tags$div(
+        class = "card-action",
+        footer
+      )
     }
+    
   )
 }
 

@@ -18,7 +18,7 @@ material_blog_card(..., src = NULL, author_name = NULL, post_title = NULL,
 
 \item{date}{Date of publication.}
 
-\item{media}{Media content. Can be an image or video (cannot insert more than one media)}
+\item{media}{Media content. Can be an image and/or video.}
 
 \item{extra}{Extra content, if any. Displayed below the media.}
 
@@ -28,7 +28,8 @@ material_blog_card(..., src = NULL, author_name = NULL, post_title = NULL,
 Create blog card
 }
 \note{
-Cannot insert more than one media per card.
+Be careful: all video should have the embed attribut such as https://www.youtube.com/embed/10r9ozshGVE.
+Otherwise they will no render.
 }
 \examples{
 material_blog_card(

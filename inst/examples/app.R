@@ -76,6 +76,33 @@ ui <- shinymaterialPlus::material_page(
       )
     ),
     
+    material_row(
+      material_column(
+        width = 6,
+        shinymaterialPlus::material_card(
+          title = "Card with footer",
+          depth = 4,
+          size = "large",
+          activator = TRUE,
+          extra = "More info here!",
+          image = TRUE,
+          src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq7RZOVorlXjMqaZNwzQmSs9t8Jaa-5tx-tR6fPhE-3O5Q5omB",
+          footer = tagList(
+            material_row(
+              material_column(
+                width = 6,
+                shiny::a(href = "http://www.google.fr", "Link 1")
+              ),
+              material_column(
+                width = 6,
+                shiny::a(href = "http://www.google.fr", "Link 2")
+              )
+            )
+          )
+        )
+      )
+    ),
+  
     
     material_row(
       # always set width to 12
@@ -152,130 +179,47 @@ ui <- shinymaterialPlus::material_page(
           de mise en page de texte, comme Aldus PageMaker"
         )
       )
-    )
+    ),
     
-    # HTML(
-    #   paste0(
-    #     '<!-- profile-page-wall -->
-    #           <div id="profile-page-wall" class="col s12 m8">
-    #     <!-- profile-page-wall-share -->
-    #     <div id="profile-page-wall-share" class="row">
-    #     <div class="col s12">
-    #     <ul class="tabs tab-profile z-depth-1 light-blue">
-    #     <li class="tab col s3"><a class="white-text waves-effect waves-light active" href="#UpdateStatus"><i class="mdi-editor-border-color"></i> Update Status</a>
-    #     </li>
-    #     <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#AddPhotos"><i class="mdi-image-camera-alt"></i> Add Photos</a>
-    #     </li>
-    #     <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#CreateAlbum"><i class="mdi-image-photo-album"></i> Create Album</a>
-    #     </li>                      
-    #     </ul>
-    #     <!-- UpdateStatus-->
-    #     <div id="UpdateStatus" class="tab-content col s12  grey lighten-4">
-    #     <div class="row">
-    #     <div class="col s2">
-    #     <img src="https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-image-post">
-    #     </div>
-    #     <div class="input-field col s10">
-    #     <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
-    #     <label for="textarea" class="">What is on your mind?</label>
-    #       </div>
-    #       </div>
-    #       <div class="row">
-    #       <div class="col s12 m6 share-icons">
-    #       <a href="#"><i class="mdi-image-camera-alt"></i></a>
-    #       <a href="#"><i class="mdi-action-account-circle"></i></a>
-    #       <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
-    #       <a href="#"><i class="mdi-communication-location-on"></i></a>
-    #       </div>
-    #       <div class="col s12 m6 right-align">
-    #       <!-- Dropdown Trigger -->
-    #       <a class="dropdown-button btn" href="#" data-activates="profliePost"><i class="mdi-action-language"></i> Public</a>
-    #       
-    #       <!-- Dropdown Structure -->
-    #       <ul id="profliePost" class="dropdown-content">
-    #       <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
-    #       <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>                              
-    #       <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
-    #       </ul>
-    #       
-    #       <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
-    #       </div>
-    #       </div>
-    #       </div>
-    #       <!-- AddPhotos -->
-    #       <div id="AddPhotos" class="tab-content col s12  grey lighten-4">
-    #       <div class="row">
-    #       <div class="col s2">
-    #       <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image-post">
-    #       </div>
-    #       <div class="input-field col s10">
-    #       <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
-    #       <label for="textarea" class="">Share your favorites photos!</label>
-    #       </div>
-    #       </div>
-    #       <div class="row">
-    #       <div class="col s12 m6 share-icons">
-    #       <a href="#"><i class="mdi-image-camera-alt"></i></a>
-    #       <a href="#"><i class="mdi-action-account-circle"></i></a>
-    #       <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
-    #       <a href="#"><i class="mdi-communication-location-on"></i></a>
-    #       </div>
-    #       <div class="col s12 m6 right-align">
-    #       <!-- Dropdown Trigger -->
-    #       <a class="dropdown-button btn" href="#" data-activates="profliePost2"><i class="mdi-action-language"></i> Public</a>
-    #       
-    #       <!-- Dropdown Structure -->
-    #       <ul id="profliePost2" class="dropdown-content">
-    #       <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
-    #       <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>                              
-    #       <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
-    #       </ul>
-    #       
-    #       <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
-    #       </div>
-    #       </div>
-    #       </div>
-    #       <!-- CreateAlbum -->
-    #       <div id="CreateAlbum" class="tab-content col s12  grey lighten-4">
-    #       <div class="row">
-    #       <div class="col s2">
-    #       <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image-post">
-    #       </div>
-    #       <div class="input-field col s10">
-    #       <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
-    #       <label for="textarea" class="">Create awesome album.</label>
-    #       </div>
-    #       </div>
-    #       <div class="row">
-    #       <div class="col s12 m6 share-icons">
-    #       <a href="#"><i class="mdi-image-camera-alt"></i></a>
-    #       <a href="#"><i class="mdi-action-account-circle"></i></a>
-    #       <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
-    #       <a href="#"><i class="mdi-communication-location-on"></i></a>
-    #       </div>
-    #       <div class="col s12 m6 right-align">
-    #       <!-- Dropdown Trigger -->
-    #       <a class="dropdown-button btn" href="#" data-activates="profliePost3"><i class="mdi-action-language"></i> Public</a>
-    #       
-    #       <!-- Dropdown Structure -->
-    #       <ul id="profliePost3" class="dropdown-content">
-    #       <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
-    #       <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>                              
-    #       <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
-    #       </ul>
-    #       
-    #       <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
-    #       </div>
-    #       </div>
-    #       </div>
-    #       </div>
-    #       </div>
-    #       <!--/ profile-page-wall-share -->
-    #     '
-    #   )
-    # ),
-    # 
-    # 
+    material_row(
+      material_column(
+        width = 6,
+        material_task_card(
+          title = "Task Card",
+          date = "14 may 2018",
+          color = "cyan",
+          material_task_item(
+            id = 1, 
+            name = "task 1", 
+            date = "today",
+            tag_name = "tag", 
+            tag_color = "red",
+            checked = FALSE, 
+            disabled = FALSE
+          ),
+          material_task_item(
+            id = 2, 
+            name = "task 2", 
+            date = "today",
+            tag_name = "tag", 
+            tag_color = "orange",
+            checked = TRUE, 
+            disabled = FALSE
+          ),
+          material_task_item(
+            id = 3, 
+            name = "task 3", 
+            date = "today",
+            tag_name = "tag", 
+            tag_color = "yellow",
+            checked = TRUE, 
+            disabled = TRUE
+          )
+        )
+      )
+      
+    )
+
     # HTML(
     #   paste0(
     #     '<!-- profile-page-header -->
@@ -326,43 +270,6 @@ ui <- shinymaterialPlus::material_page(
     #     </div>
     #     </div>
     #     <!--/ profile-page-header -->
-    #     '
-    #   )
-    # ),
-    # 
-    # HTML(
-    #   paste0(
-    #     '<!-- task-card -->
-    #             <ul id="task-card" class="collection with-header">
-    #     <li class="collection-header cyan">
-    #     <h4 class="task-card-title">My Task</h4>
-    #     <p class="task-card-date">March 26, 2015</p>
-    #     </li>
-    #     <li class="collection-item dismissable">
-    #     <input type="checkbox" id="task1" />
-    #     <label for="task1">Create Mobile App UI. <a href="#" class="secondary-content"><span class="ultra-small">Today</span></a>
-    #     </label>
-    #     <span class="task-cat teal">Mobile App</span>
-    #     </li>
-    #     <li class="collection-item dismissable">
-    #     <input type="checkbox" id="task2" />
-    #     <label for="task2">Check the new API standerds. <a href="#" class="secondary-content"><span class="ultra-small">Monday</span></a>
-    #     </label>
-    #     <span class="task-cat purple">Web API</span>
-    #     </li>
-    #     <li class="collection-item dismissable">
-    #     <input type="checkbox" id="task3" checked="checked" />
-    #     <label for="task3">Check the new Mockup of ABC. <a href="#" class="secondary-content"><span class="ultra-small">Wednesday</span></a>
-    #     </label>
-    #     <span class="task-cat pink">Mockup</span>
-    #     </li>
-    #     <li class="collection-item dismissable">
-    #     <input type="checkbox" id="task4" checked="checked" disabled="disabled" />
-    #     <label for="task4">I did it !</label>
-    #     <span class="task-cat cyan">Mobile App</span>
-    #     </li>
-    #     </ul>
-    #     <!-- task-card -->
     #     '
     #   )
     # )
@@ -482,6 +389,25 @@ ui <- shinymaterialPlus::material_page(
       material_column(
         width = 6,
         material_icon("play_arrow", circle = TRUE, color = "red", position = NULL)
+      )
+    ),
+    
+    # material progress
+    material_row(
+      material_column(
+        width = 6,
+        material_progress(
+          value = "80"
+        ),
+        material_progress(
+          main_color = "red", 
+          value = "40"
+        ),
+        material_progress(
+          main_color = "orange", 
+          secondary_color = "blue",
+          value = "10"
+        )
       )
     )
 
