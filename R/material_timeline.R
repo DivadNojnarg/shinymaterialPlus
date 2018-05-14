@@ -1,6 +1,7 @@
 #' Create a material timeline
 #'
 #' @param ... Slot for material_timeline_item
+#' 
 #' @examples
 #' material_timeline(
 #'  material_timeline_item(

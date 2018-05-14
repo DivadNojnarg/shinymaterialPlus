@@ -226,18 +226,66 @@ ui <- shinymaterialPlus::material_page(
     
     material_row(
       material_column(
-        width = 6,
-        shiny::tags$div(
-          class ="card gradient-shadow gradient-45deg-light-blue-cyan border-radius-3",
-          shiny::tags$div(
-            class = "card-content center",
-            shiny::tags$img(
-              class = "width-40 border-round z-depth-5",
-              src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/apple-watch.png"
-            ),
-            shiny::tags$h5(class = "white-text lighten-4", "50% Off"),
-            shiny::tags$p(class = "white-text lighten-4", "On apple watch")
-          )
+        width = 4,
+        material_gradient_card(
+          src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/apple-watch.png",
+          title = "50% Off",
+          subtitle = "On apple watch",
+          color = material_gradient_color()[[11]]
+        )
+      ),
+      material_column(
+        width = 4,
+        material_gradient_card(
+          src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/printer.png",
+          title = "20% Off",
+          subtitle = "On canon Printer",
+          color = material_gradient_color()[[3]]
+        )
+      ),
+      material_column(
+        width = 4,
+        material_gradient_card(
+          src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/laptop.png",
+          title = "40% Off",
+          subtitle = "On apple macbook",
+          color = material_gradient_color()[[18]]
+        )
+      )
+    ),
+    
+    material_row(
+      material_column(
+        width = 4,
+        material_info_card(
+          icon = "timeline",
+          title = "Orders",
+          value = 690,
+          subtitle = "New",
+          extra = 6000,
+          color = material_gradient_color()[[15]]
+        )
+      ),
+      material_column(
+        width = 4,
+        material_info_card(
+          icon = "timeline",
+          title = "Orders",
+          value = 690,
+          subtitle = "New",
+          extra = 6000,
+          color = material_gradient_color()[[3]]
+        )
+      ),
+      material_column(
+        width = 4,
+        material_info_card(
+          icon = "timeline",
+          title = "Orders",
+          value = 690,
+          subtitle = "New",
+          extra = 6000,
+          color = material_gradient_color()[[23]]
         )
       )
     )
@@ -480,7 +528,7 @@ ui <- shinymaterialPlus::material_page(
     tab_id = "fifth_tab",
     tags$h3("Material timeline"),
     
-    # Material carousel
+    # Material timeline
     material_row(
       material_column(
         width = 6,
@@ -488,7 +536,6 @@ ui <- shinymaterialPlus::material_page(
           material_timeline_item(
             material_timeline_card(
               src = "https://i.pinimg.com/originals/df/0a/3e/df0a3e2ec30abb1c92d145ef165b714f.gif",
-              depth = 5,
               title = "Item 1",
               extra = "Some text here!"
             ),
@@ -570,45 +617,23 @@ ui <- shinymaterialPlus::material_page(
       )
     ),
     
-    # only works if elements are wrapped in <div class="col s12 m6 grid">...</div>
+    # material masonry: only works if elements are wrapped in <div class="col s12 m6 grid">...</div>
     material_row(
-      HTML(
-        paste0(
-          '<div class="col s12 m6 grid">
-          <figure class="effect-lily">
-          <img src="https://pixinvent.com/materialize-material-design-admin-template/images/gallary/5.png">
-          <figcaption>
-          <h2> "Nice "
-          <span>Lily</span>
-          </h2>
-          <p> Lily likes to play with crayons and pencils</p>
-          <a href="#">View more</a>
-          </figcaption>
-          </figure>
-          </div>
-          '
-        )
-        ),
-      
-      HTML(
-        paste0(
-          '<div class="col s12 m6 grid">
-          <figure class="effect-layla">
-          <img src="https://www.sammobile.com/wp-content/uploads/2017/05/Redscape.png">
-          <figcaption>
-          <h2> "Crazy "
-          <span>Layla</span>
-          </h2>
-          <p> When Layla appears, she brings an eternal summer along.</p>
-          <a href="#">View more</a>
-          </figcaption>
-          </figure>
-          </div>
-          '
-        )
-        )
-      
-        )
+      material_masonry(
+        effect = masonry_effect_list()[[1]],
+        src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/5.png",
+        caption_1 = "Nice",
+        caption_2 = "Lily",
+        subcaption = "Lily likes to play with crayons and pencils"
+       ),
+      material_masonry(
+        effect = masonry_effect_list()[[4]],
+        src = "https://www.sammobile.com/wp-content/uploads/2017/05/Redscape.png", 
+        caption_1 = "Crazy",
+        caption_2 = "Layla",
+        subcaption = " When Layla appears, she brings an eternal summer along"
+      )
+    )
     
   )
   
