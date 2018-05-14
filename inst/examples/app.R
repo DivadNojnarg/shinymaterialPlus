@@ -226,6 +226,72 @@ ui <- shinymaterialPlus::material_page(
       
     ),
     
+    # material plans
+    material_row(
+      material_column(
+        width = 12,
+        material_plans(
+          material_plan_item(
+            title = "Basic",
+            value = "10$",
+            subtitle = "Free 1 month",
+            url = "http://www.google.com",
+            depth = 5,
+            color = material_gradient_color()[[15]],
+            material_plan_collection(
+              material_plan_collection_item(
+                description = "500 emails"
+              ),
+              material_plan_collection_item(
+                description = "Unlimited data"
+              ),
+              material_plan_collection_item(
+                description = "1 user"
+              )
+            )
+          ),
+          material_plan_item(
+            title = "Pro",
+            value = "29$",
+            subtitle = "Most popular",
+            url = "http://www.google.com",
+            depth = NULL,
+            color = material_gradient_color()[[1]],
+            material_plan_collection(
+              material_plan_collection_item(
+                description = "2000 emails"
+              ),
+              material_plan_collection_item(
+                description = "Unlimited data"
+              ),
+              material_plan_collection_item(
+                description = "10 users"
+              )
+            )
+          ),
+          material_plan_item(
+            title = "Premium",
+            value = "49$",
+            subtitle = "Get 20% off",
+            url = "http://www.google.com",
+            depth = NULL,
+            color = material_gradient_color()[[20]],
+            material_plan_collection(
+              material_plan_collection_item(
+                description = "10000 emails"
+              ),
+              material_plan_collection_item(
+                description = "Unlimited data"
+              ),
+              material_plan_collection_item(
+                description = "Unlimited user"
+              )
+            )
+          )
+        )
+      )
+    ),
+    
     
     # material stat cards
     material_row(

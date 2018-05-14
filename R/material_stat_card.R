@@ -38,7 +38,7 @@ material_stat_card <- function(title = NULL, value = NULL, trend = NULL,
       shiny::tags$p(
         class = "card-stats-compare center-align",
         material_icon(name = if (trend != "equal") paste0("expand_", trend) else "drag_handle"),
-        shiny::tags$span(class = paste0(color, "-text text-lighten"), subtitle)
+        shiny::tags$span(class = "text-lighten", subtitle)
       )
     ),
     

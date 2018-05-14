@@ -12,7 +12,7 @@ material_stat_card(title = NULL, value = NULL, trend = NULL,
 
 \item{value}{Card subtitle.}
 
-\item{trend}{Card trend. "up", "down" or "equal".}
+\item{trend}{Card trend. "more", "less" or "equal".}
 
 \item{subtitle}{Card subtitle.}
 
