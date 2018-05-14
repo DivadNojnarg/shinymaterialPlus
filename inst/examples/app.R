@@ -94,6 +94,64 @@ ui <- shinymaterialPlus::material_page(
            Web page editors now use Lorem Ipsum as their default"
         )
       )
+    ),
+    
+    material_row(
+      material_column(
+        width = 6,
+        material_blog_card(
+          src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
+          author_name = "Jean Eude",
+          post_title = "My Post",
+          date = "14 May 2018",
+          media = material_media(
+            src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/3.png"
+          ),
+          "Le Lorem Ipsum est simplement du faux texte employé dans la 
+        composition et la mise en page avant impression. Le Lorem 
+        Ipsum est le faux texte standard de l'imprimerie depuis les 
+        années 1500, quand un peintre anonyme assembla ensemble des 
+        morceaux de texte pour réaliser un livre spécimen de polices 
+        de texte. Il n'a pas fait que survivre cinq siècles, mais s'est 
+        aussi adapté à la bureautique informatique, sans que son contenu 
+        n'en soit modifié. Il a été popularisé dans les années 1960 grâce 
+        à la vente de feuilles Letraset contenant des passages du Lorem 
+        Ipsum, et, plus récemment, par son inclusion dans des applications 
+        de mise en page de texte, comme Aldus PageMaker"
+        )
+      ),
+      material_column(
+        width = 6,
+        material_blog_card(
+          src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
+          author_name = "Jean Eude",
+          post_title = "My Post",
+          date = "14 May 2018",
+          media = tagList(
+            material_video(
+              src = "https://www.youtube.com/embed/10r9ozshGVE", 
+              responsive = FALSE,
+              height = "480",
+              width = "853",
+              fullscreen = TRUE
+            ),
+            material_media(
+              src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/3.png"
+            )
+          ),
+          "Le Lorem Ipsum est simplement du faux texte employé dans la 
+          composition et la mise en page avant impression. Le Lorem 
+          Ipsum est le faux texte standard de l'imprimerie depuis les 
+          années 1500, quand un peintre anonyme assembla ensemble des 
+          morceaux de texte pour réaliser un livre spécimen de polices 
+          de texte. Il n'a pas fait que survivre cinq siècles, mais s'est 
+          aussi adapté à la bureautique informatique, sans que son contenu 
+          n'en soit modifié. Il a été popularisé dans les années 1960 grâce 
+          à la vente de feuilles Letraset contenant des passages du Lorem 
+          Ipsum, et, plus récemment, par son inclusion dans des applications 
+          de mise en page de texte, comme Aldus PageMaker"
+        )
+      )
     )
     
     # HTML(
@@ -217,50 +275,6 @@ ui <- shinymaterialPlus::material_page(
     #   )
     # ),
     # 
-    # HTML(
-    #   paste0(
-    #     '<div id="profile-page-wall-post" class="card">
-    #                     <div class="card-profile-title">
-    #     <div class="row">
-    #     <div class="col s1">
-    #     <img src="https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png" alt="" class="circle responsive-img valign profile-post-uer-image">                        
-    #     </div>
-    #     <div class="col s10">
-    #     <p class="grey-text text-darken-4 margin">John Doe</p>
-    #     <span class="grey-text text-darken-1 ultra-small">Shared publicly  -  26 Jun 2015</span>
-    #     </div>
-    #     <div class="col s1 right-align">
-    #     <i class="mdi-navigation-expand-more"></i>
-    #     </div>
-    #     </div>
-    #     <div class="row">
-    #     <div class="col s12">
-    #     <p>I am a very simple wall post. I am good at containing <a href="#">#small</a> bits of <a href="#">#information</a>.  I require little more information to use effectively.</p>
-    #     </div>
-    #     </div>
-    #     </div>
-    #     <div class="card-image profile-medium">                          
-    #     <img src="https://pixinvent.com/materialize-material-design-admin-template/images/gallary/26.png" alt="sample" class="responsive-img profile-post-image profile-medium">                        
-    #     <span class="card-title">Card Title</span>
-    #     </div>
-    #     <div class="card-content">
-    #     <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-    #     </div>
-    #     <div class="card-action row">
-    #     <div class="col s4 card-action-share">
-    #     <a href="#">Like</a>                          
-    #     <a href="#">Share</a>
-    #     </div>
-    #     
-    #     <div class="input-field col s8 margin">
-    #     <input id="profile-comments" type="text" class="validate margin">
-    #     <label for="profile-comments" class="">Comments</label>
-    #     </div>                        
-    #     </div>                        
-    #     </div>
-    #     '
-    #   )
-    # ),
     # 
     # HTML(
     #   paste0(

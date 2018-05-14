@@ -2,6 +2,7 @@
 
 export(material_badge)
 export(material_blockquote)
+export(material_blog_card)
 export(material_button)
 export(material_card)
 export(material_card_horizontal)
