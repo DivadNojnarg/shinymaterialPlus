@@ -22,8 +22,7 @@
 #'  date = "14 May 2018",
 #'  media = material_media(
 #'   src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/3.png"
-#'  )
-#' ),
+#'  ),
 #'  "Le Lorem Ipsum est simplement du faux texte employé dans la 
 #'  composition et la mise en page avant impression. Le Lorem 
 #'  Ipsum est le faux texte standard de l'imprimerie depuis les 

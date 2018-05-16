@@ -7,6 +7,7 @@
 #' @param nav_bar_color Color of the nav bar. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.
 #' @param enable_footer Whether to display the footer or not. TRUE by default.
 #' @param footer_content Footer content.
+#' @param footer_color Footer color. 
 #' @param copyright Copyright text in footer.
 #' @param footer_extra Display additional text on the right of copyrights.
 #' @param background_color Page background color. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.

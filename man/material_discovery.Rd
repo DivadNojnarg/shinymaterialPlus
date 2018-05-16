@@ -18,9 +18,7 @@ Create a material discovery
 }
 \examples{
 
-material_discovery_trigger(
- label = "Open Discovery"
-),
+material_discovery_trigger()
 material_discovery(
  id = "discovery_button",
  title = "My discovery",

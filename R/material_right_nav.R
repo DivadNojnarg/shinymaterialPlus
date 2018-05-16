@@ -1,7 +1,7 @@
 #' Create a shinymaterial right sidebar
 #' 
 #' @examples
-#' material_rigth_nav(
+#' material_right_nav(
 #'   
 #' )
 #' @export

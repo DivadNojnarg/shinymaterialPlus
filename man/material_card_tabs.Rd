@@ -16,7 +16,7 @@ UI content can be placed in cards.
 }
 \examples{
 material_card_tabs(
- id = "tab_1"
+ id = "tab_1",
  "Content"
 )
 }

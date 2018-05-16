@@ -41,6 +41,6 @@ material_profile_card(
  user_name = "ROger Waters",
  user_position = "Project Manager",
  user_phone = "+1 (612) 222 8989",
- user_adress = "mail@domain.com"
+ user_mail = "mail@domain.com"
 )
 }

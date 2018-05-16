@@ -5,6 +5,7 @@
 #' @param trend Card trend. "more", "less" or "equal".
 #' @param subtitle Card subtitle.
 #' @param footer Card footer, if any.
+#' @param icon Card icon, if any.
 #' @param color Card color. Use the function material_gradient_color() to have the full list.
 #' 
 #' @examples

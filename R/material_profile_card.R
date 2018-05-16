@@ -18,7 +18,7 @@
 #'  user_name = "ROger Waters",
 #'  user_position = "Project Manager",
 #'  user_phone = "+1 (612) 222 8989",
-#'  user_adress = "mail@@domain.com"
+#'  user_mail = "mail@@domain.com"
 #' )
 #' @export
 material_profile_card <- function(header_background = "https://images3.alphacoders.com/601/601818.jpg", 

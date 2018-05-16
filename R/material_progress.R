@@ -6,7 +6,6 @@
 #' 
 #' @examples
 #' material_progress(
-#'  color = NULL,
 #'  value = "70%"
 #' )
 #' @export

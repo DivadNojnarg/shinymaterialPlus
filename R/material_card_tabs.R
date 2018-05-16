@@ -5,7 +5,7 @@
 #' @param id Tag id. Should be unique and correspond to the id provided in material_tabs.
 #' @examples
 #' material_card_tabs(
-#'  id = "tab_1"
+#'  id = "tab_1",
 #'  "Content"
 #' )
 #' @export

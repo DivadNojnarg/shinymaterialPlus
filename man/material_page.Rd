@@ -23,6 +23,8 @@ material_page(..., title = "", nav_bar_fixed = FALSE,
 
 \item{footer_content}{Footer content.}
 
+\item{footer_color}{Footer color.}
+
 \item{copyright}{Copyright text in footer.}
 
 \item{footer_extra}{Display additional text on the right of copyrights.}

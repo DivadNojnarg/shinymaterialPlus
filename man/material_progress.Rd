@@ -18,7 +18,6 @@ Create a material progress bar
 }
 \examples{
 material_progress(
- color = NULL,
  value = "70\%"
 )
 }

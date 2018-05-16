@@ -18,6 +18,8 @@ material_stat_card(title = NULL, value = NULL, trend = NULL,
 
 \item{footer}{Card footer, if any.}
 
+\item{icon}{Card icon, if any.}
+
 \item{color}{Card color. Use the function material_gradient_color() to have the full list.}
 }
 \description{
