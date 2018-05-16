@@ -71,11 +71,8 @@ material_collapsible <- function(..., type = NULL) {
 #' 
 #' @export
 material_collapsible_item <- function(..., header = NULL, icon = NULL, active = FALSE) {
-  collapsibleItemCl <- NULL
-  if (isTRUE(active)) collapsibleItemCl <- "active"
-    
   shiny::tags$li(
-    class = collapsibleItemCl,
+    class = if (isTRUE(active)) "active" else NULL,
     shiny::tags$div(
       class = "collapsible-header", 
       shiny::tags$i(class = "material-icons", icon), 

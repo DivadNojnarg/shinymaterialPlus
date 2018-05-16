@@ -28,6 +28,12 @@ function getCollapseIndex() {
   });
 }
     
+
+// right sidebar toggle
+$('.chat-collapse').sideNav({
+  menuWidth: 300,
+  edge: 'right',
+});
     
 // Materialize Slider
 $('.slider').slider({

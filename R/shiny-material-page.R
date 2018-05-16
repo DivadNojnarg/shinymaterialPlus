@@ -81,6 +81,17 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
           )
         ),
         shiny::HTML(paste0("&nbsp;", title))
+      ),
+      shiny::tags$ul(
+        class = "right hide-on-med-and-down",
+        shiny::tags$li(
+          shiny::tags$a(
+            class = "waves-effect waves-block waves-light chat-collapse",
+            `data-activates` = "chat-out",
+            href = "#",
+            material_icon(name = "format_indent_increase")
+          )
+        )
       )
     )
   )
@@ -100,13 +111,21 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
          "https://fonts.googleapis.com/icon?family=Material+Icons"
        ),
       # Source Materialize CSS
+      # shiny::includeCSS(
+      #   system.file(paste0("materialize/", materialize_version, "/css/materialize.min.css"),
+      #               package = "shinymaterial"),
+      #   media = "screen,projection"
+      # ),
       shiny::includeCSS(
-        system.file(paste0("materialize/", materialize_version, "/css/materialize.min.css"),
-                    package = "shinymaterial"),
-        media = "screen,projection"
+        system.file("css/materialize.min.css",
+                    package = "shinymaterialPlus")
       ),
       shiny::includeCSS(
         system.file("css/style.css",
+                    package = "shinymaterialPlus")
+      ),
+      shiny::includeCSS(
+        system.file("css/perfect-scrollbar.css",
                     package = "shinymaterialPlus")
       ),
       shiny::includeCSS(
@@ -136,6 +155,10 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
       material_nav_bar,
       ...
     ),
+    
+    # rigth sidebar -----------------------------------------------------------
+    material_right_nav(),
+    
     
     # footer ------------------------------------------------------------------
     if (enable_footer) {
@@ -173,12 +196,12 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     
     # Source Materialize Javascript
     shiny::includeScript(
-      system.file("js/jquery-2.1.1.min.js",
-                  package = "shinymaterialPlus")
-    ),
-    shiny::includeScript(
       system.file(paste0("materialize/", materialize_version, "/js/materialize.min.js"),
                   package = "shinymaterial")
+    ),
+    shiny::includeScript(
+      system.file("js/perfect-scrollbar.min.js",
+                  package = "shinymaterialPlus")
     ),
     shiny::includeScript(
       system.file("js/shiny-material-page.js",

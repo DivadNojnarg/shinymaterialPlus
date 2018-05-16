@@ -1,11 +1,17 @@
 library(shiny)
 library(shinymaterial)
+library(leaflet)
 
 # Wrap shinymaterial apps in material_page
 ui <- shinymaterialPlus::material_page(
   title = "shinymaterialPlus V0.1",
   nav_bar_color = "grey darken-4",
-  footer_content = "The footer content",
+  footer_content = material_row(
+    material_column(
+      width = 6,
+      leafletOutput("location")
+    )
+  ),
   copyright = "Copyrights, if any",
   footer_extra = "2018",
   footer_color = "grey darken-4",
@@ -13,12 +19,12 @@ ui <- shinymaterialPlus::material_page(
   material_side_nav(
     fixed = FALSE,
     image_source = "https://i.pinimg.com/originals/ff/92/68/ff92685e660a2d347736f44cc7a11d38.jpg",
-    background_color = "grey darken-4"
+    background_color = "white"
   ),
   
   # Define tabs
   material_tabs(
-    color = "orange",
+    color = "black",
     tabs = c(
       "Card Extensions" = "first_tab",
       "Collections" = "second_tab",
@@ -118,7 +124,7 @@ ui <- shinymaterialPlus::material_page(
           )
           
         ),
-
+        
         div(
           id = "part2",
           class = "section scrollspy",
@@ -168,7 +174,7 @@ ui <- shinymaterialPlus::material_page(
               Ipsum, et, plus récemment, par son inclusion dans des applications 
               de mise en page de texte, comme Aldus PageMaker"
             )
-            ),
+          ),
           material_column(
             width = 6,
             material_blog_card(
@@ -197,8 +203,8 @@ ui <- shinymaterialPlus::material_page(
               Ipsum, et, plus récemment, par son inclusion dans des applications 
               de mise en page de texte, comme Aldus PageMaker"
             )
-            )
-            ),
+          )
+        ),
         
         
         # material task card
@@ -584,7 +590,7 @@ ui <- shinymaterialPlus::material_page(
         )
       )
     )
-
+    
   ),
   
   material_tab_content(
@@ -603,21 +609,24 @@ ui <- shinymaterialPlus::material_page(
             Ut enim ad minim veniam, quis nostrud exercitation ullamco 
             laboris nisi ut aliquip ex ea commodo consequat",
             header = "First",
-            active = "TRUE"
+            active = TRUE,
+            icon = "filter_drama"
           ),
           material_collapsible_item(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco 
             laboris nisi ut aliquip ex ea commodo consequat",
-            header = "Second"
+            header = "Second",
+            icon = "place"
           ),
           material_collapsible_item(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco 
             laboris nisi ut aliquip ex ea commodo consequat",
-            header = "Third"
+            header = "Third",
+            icon = "whatshot"
           )
         )
       ),
@@ -630,7 +639,7 @@ ui <- shinymaterialPlus::material_page(
             Ut enim ad minim veniam, quis nostrud exercitation ullamco 
             laboris nisi ut aliquip ex ea commodo consequat",
             header = "First",
-            active = "TRUE"
+            active = TRUE
           ),
           material_collapsible_item(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -752,7 +761,7 @@ ui <- shinymaterialPlus::material_page(
         caption_1 = "Nice",
         caption_2 = "Lily",
         subcaption = "Lily likes to play with crayons and pencils"
-       ),
+      ),
       material_masonry(
         effect = masonry_effect_list()[[4]],
         src = "https://www.sammobile.com/wp-content/uploads/2017/05/Redscape.png", 
@@ -769,6 +778,11 @@ ui <- shinymaterialPlus::material_page(
 )
 
 server <- function(input, output) {
-  
+  output$location <- renderLeaflet({
+    leaflet() %>%
+      setView(8.548672, 47.396847, 13) %>%
+      addTiles() %>%
+      addMarkers(8.548672, 47.396847)
+  })
 }
 shinyApp(ui = ui, server = server)

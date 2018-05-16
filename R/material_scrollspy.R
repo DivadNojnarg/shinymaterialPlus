@@ -27,7 +27,6 @@ material_scrollpsy <- function(...) {
 #' @export
 material_scrollpsy_item <- function(target = NULL) {
   shiny::tags$li(
-    #class = if (isTRUE(active)) "active" else NULL,
     shiny::tags$a(href = paste0("#", target), target)
   )
 }
