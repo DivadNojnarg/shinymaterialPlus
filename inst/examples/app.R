@@ -105,10 +105,10 @@ ui <- shinymaterialPlus::material_page(
     tags$h3("Material Card Extensions"),
     
     material_row(
-      material_scrollpsy(
-        material_scrollpsy_item(target = "part1"),
-        material_scrollpsy_item(target = "part2"),
-        material_scrollpsy_item(target = "part3")
+      material_scrollspy(
+        material_scrollspy_item(target = "part1"),
+        material_scrollspy_item(target = "part2"),
+        material_scrollspy_item(target = "part3")
       ),
       material_column(
         width = 10,
