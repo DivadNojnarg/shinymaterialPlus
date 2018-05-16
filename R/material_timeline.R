@@ -102,7 +102,7 @@ material_timeline_card <- function(..., src = NULL, title = NULL, extra = NULL,
       shiny::tags$span(
         class = "card-title activator grey-text text-darken-4",
         title,
-        material_icon(name = "more_vert")
+        material_icon(name = "more_vert", position = "right")
       ),
       shiny::tags$p(...)
     ),

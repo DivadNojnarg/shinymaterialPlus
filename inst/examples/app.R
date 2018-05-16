@@ -4,15 +4,16 @@ library(shinymaterial)
 # Wrap shinymaterial apps in material_page
 ui <- shinymaterialPlus::material_page(
   title = "shinymaterialPlus V0.1",
-  nav_bar_color = "blue",
+  nav_bar_color = "grey darken-4",
   footer_content = "The footer content",
   copyright = "Copyrights, if any",
   footer_extra = "2018",
+  footer_color = "grey darken-4",
   
-  tags$head(
-    shiny::includeScript(
-      "https://code.jquery.com/jquery-2.1.1.min.js"
-    )
+  material_side_nav(
+    fixed = FALSE,
+    image_source = "https://i.pinimg.com/originals/ff/92/68/ff92685e660a2d347736f44cc7a11d38.jpg",
+    background_color = "grey darken-4"
   ),
   
   # Define tabs
@@ -32,374 +33,390 @@ ui <- shinymaterialPlus::material_page(
     tab_id = "first_tab",
     tags$h3("Material Card Extensions"),
     
-    # Material Card Plus
+    
     material_row(
+      material_scrollpsy(
+        material_scrollpsy_item(target = "part1"),
+        material_scrollpsy_item(target = "part2"),
+        material_scrollpsy_item(target = "part3")
+      ),
       material_column(
-        width = 6,
-        shinymaterialPlus::material_card(
-          title = "Example Card",
-          depth = NULL,
-          size = "large",
-          tabs = TRUE,
-          tabscontent = material_tabs(
-            tabs = c(
-              "Example Tab 1" = "example_tab_1",
-              "Example Tab 2" = "example_tab_2"
+        width = 10,
+        # Material Card Plus
+        div(
+          id = "part1", 
+          class = "section scrollspy",
+          material_row(
+            material_column(
+              width = 6,
+              shinymaterialPlus::material_card(
+                title = "Example Card",
+                depth = NULL,
+                size = "large",
+                tabs = TRUE,
+                tabscontent = material_tabs(
+                  tabs = c(
+                    "Example Tab 1" = "example_tab_1",
+                    "Example Tab 2" = "example_tab_2"
+                  ),
+                  color = "deep-purple"
+                ),
+                material_card_tabs(id = "example_tab_1", "tab 1"),
+                material_card_tabs(id = "example_tab_2", "tab 2"),
+                material_badge(1, custom_caption = TRUE),
+                material_badge(content = "Test", color = "red", type = "new"),
+                activator = TRUE,
+                extra = "More info here!",
+                #color = "deep-orange",
+                image = TRUE,
+                src = "http://www.oxygenna.com/wp-content/uploads/2015/11/18.jpg"
+              ) 
             ),
-            color = "deep-purple"
+            
+            # Material Profile card
+            material_column(
+              width = 6,
+              material_profile_card(
+                depth = 5,
+                header_background = "https://images3.alphacoders.com/601/601818.jpg",
+                user_img = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
+                user_name = "Roger Waters",
+                user_position = "Project Manager",
+                user_phone = "+1 (612) 222 8989",
+                user_mail = "mail@domain.com",
+                date_of_birth = "18th June 1990",
+                extra = "Test"
+              )
+            )
           ),
-          material_card_tabs(id = "example_tab_1", "tab 1"),
-          material_card_tabs(id = "example_tab_2", "tab 2"),
-          material_badge(1, custom_caption = TRUE),
-          material_badge(content = "Test", color = "red", type = "new"),
-          activator = TRUE,
-          extra = "More info here!",
-          #color = "deep-orange",
-          image = TRUE,
-          src = "http://www.oxygenna.com/wp-content/uploads/2015/11/18.jpg"
-        ) 
-      ),
-      
-      # Material Profile card
-      material_column(
-        width = 6,
-        material_profile_card(
-          depth = 5,
-          header_background = "https://images3.alphacoders.com/601/601818.jpg",
-          user_img = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
-          user_name = "Roger Waters",
-          user_position = "Project Manager",
-          user_phone = "+1 (612) 222 8989",
-          user_mail = "mail@domain.com",
-          date_of_birth = "18th June 1990",
-          extra = "Test"
-        )
-      )
-    ),
-    
-    material_row(
-      material_column(
-        width = 6,
-        shinymaterialPlus::material_card(
-          title = "Card with footer",
-          depth = NULL,
-          size = "large",
-          activator = TRUE,
-          extra = "More info here!",
-          image = TRUE,
-          src = "https://i.pinimg.com/originals/73/38/6e/73386e0513d4c02a4fbb814cadfba655.jpg",
-          footer = tagList(
-            material_row(
-              material_column(
-                width = 6,
-                shiny::a(href = "http://www.google.fr", "Link 1")
-              ),
-              material_column(
-                width = 6,
-                shiny::a(href = "http://www.google.fr", "Link 2")
+          
+          material_row(
+            material_column(
+              width = 6,
+              shinymaterialPlus::material_card(
+                title = "Card with footer",
+                depth = NULL,
+                size = "large",
+                activator = TRUE,
+                extra = "More info here!",
+                image = TRUE,
+                src = "https://i.pinimg.com/originals/73/38/6e/73386e0513d4c02a4fbb814cadfba655.jpg",
+                footer = tagList(
+                  material_row(
+                    material_column(
+                      width = 6,
+                      shiny::a(href = "http://www.google.fr", "Link 1")
+                    ),
+                    material_column(
+                      width = 6,
+                      shiny::a(href = "http://www.google.fr", "Link 2")
+                    )
+                  )
+                )
               )
             )
           )
-        )
-      )
-    ),
-  
-    
-    material_row(
-      # always set width to 12
-      material_column(
-        width = 12,
-        # horizontal card
-        material_card_horizontal(
-          hoverable = TRUE,
-          src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/21.png",
-          title = "Card Title",
-          "It is a long established fact that a reader will be distracted 
-           by the readable content of a page when looking at its layout. 
-           The point of using Lorem Ipsum is that it has a more-or-less 
-           normal distribution of letters, as opposed to using 'Content here, 
-           Packages and web page editors now use Lorem Ipsum as their default 
-           model text, and a search for 'lorem ipsum' will uncover. 
-           Web page editors now use Lorem Ipsum as their default"
-        )
-      )
-    ),
-    
-    material_row(
-      material_column(
-        width = 6,
-        material_blog_card(
-          hoverable = TRUE,
-          src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
-          author_name = "Jean Eude",
-          post_title = "My Post",
-          date = "14 May 2018",
-          media = material_media(
-            src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/3.png"
-          ),
-          "Le Lorem Ipsum est simplement du faux texte employé dans la 
-        composition et la mise en page avant impression. Le Lorem 
-        Ipsum est le faux texte standard de l'imprimerie depuis les 
-        années 1500, quand un peintre anonyme assembla ensemble des 
-        morceaux de texte pour réaliser un livre spécimen de polices 
-        de texte. Il n'a pas fait que survivre cinq siècles, mais s'est 
-        aussi adapté à la bureautique informatique, sans que son contenu 
-        n'en soit modifié. Il a été popularisé dans les années 1960 grâce 
-        à la vente de feuilles Letraset contenant des passages du Lorem 
-        Ipsum, et, plus récemment, par son inclusion dans des applications 
-        de mise en page de texte, comme Aldus PageMaker"
-        )
-      ),
-      material_column(
-        width = 6,
-        material_blog_card(
-          src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
-          author_name = "Jean Eude",
-          post_title = "My Post",
-          date = "14 May 2018",
-          media = tagList(
-            material_video(
-              src = "https://www.youtube.com/embed/10r9ozshGVE", 
-              responsive = FALSE,
-              height = "480",
-              width = "853",
-              fullscreen = TRUE
+          
+        ),
+
+        div(
+          id = "part2",
+          class = "section scrollspy",
+          material_row(
+            # always set width to 12
+            material_column(
+              width = 12,
+              # horizontal card
+              material_card_horizontal(
+                hoverable = TRUE,
+                src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/21.png",
+                title = "Card Title",
+                "It is a long established fact that a reader will be distracted 
+                by the readable content of a page when looking at its layout. 
+                The point of using Lorem Ipsum is that it has a more-or-less 
+                normal distribution of letters, as opposed to using 'Content here, 
+                Packages and web page editors now use Lorem Ipsum as their default 
+                model text, and a search for 'lorem ipsum' will uncover. 
+                Web page editors now use Lorem Ipsum as their default"
+              )
+            )
+          )
+        ),
+        
+        # material blog card
+        material_row(
+          material_column(
+            width = 6,
+            material_blog_card(
+              hoverable = TRUE,
+              src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
+              author_name = "Jean Eude",
+              post_title = "My Post",
+              date = "14 May 2018",
+              media = material_media(
+                src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/3.png"
+              ),
+              "Le Lorem Ipsum est simplement du faux texte employé dans la 
+              composition et la mise en page avant impression. Le Lorem 
+              Ipsum est le faux texte standard de l'imprimerie depuis les 
+              années 1500, quand un peintre anonyme assembla ensemble des 
+              morceaux de texte pour réaliser un livre spécimen de polices 
+              de texte. Il n'a pas fait que survivre cinq siècles, mais s'est 
+              aussi adapté à la bureautique informatique, sans que son contenu 
+              n'en soit modifié. Il a été popularisé dans les années 1960 grâce 
+              à la vente de feuilles Letraset contenant des passages du Lorem 
+              Ipsum, et, plus récemment, par son inclusion dans des applications 
+              de mise en page de texte, comme Aldus PageMaker"
+            )
             ),
-            material_media(
-              src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/3.png"
+          material_column(
+            width = 6,
+            material_blog_card(
+              src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
+              author_name = "Jean Eude",
+              post_title = "My Post",
+              date = "14 May 2018",
+              media = tagList(
+                material_video(
+                  src = "https://www.youtube.com/embed/10r9ozshGVE", 
+                  responsive = FALSE,
+                  height = "480",
+                  width = "853",
+                  fullscreen = TRUE
+                )
+              ),
+              "Le Lorem Ipsum est simplement du faux texte employé dans la 
+              composition et la mise en page avant impression. Le Lorem 
+              Ipsum est le faux texte standard de l'imprimerie depuis les 
+              années 1500, quand un peintre anonyme assembla ensemble des 
+              morceaux de texte pour réaliser un livre spécimen de polices 
+              de texte. Il n'a pas fait que survivre cinq siècles, mais s'est 
+              aussi adapté à la bureautique informatique, sans que son contenu 
+              n'en soit modifié. Il a été popularisé dans les années 1960 grâce 
+              à la vente de feuilles Letraset contenant des passages du Lorem 
+              Ipsum, et, plus récemment, par son inclusion dans des applications 
+              de mise en page de texte, comme Aldus PageMaker"
             )
-          ),
-          "Le Lorem Ipsum est simplement du faux texte employé dans la 
-          composition et la mise en page avant impression. Le Lorem 
-          Ipsum est le faux texte standard de l'imprimerie depuis les 
-          années 1500, quand un peintre anonyme assembla ensemble des 
-          morceaux de texte pour réaliser un livre spécimen de polices 
-          de texte. Il n'a pas fait que survivre cinq siècles, mais s'est 
-          aussi adapté à la bureautique informatique, sans que son contenu 
-          n'en soit modifié. Il a été popularisé dans les années 1960 grâce 
-          à la vente de feuilles Letraset contenant des passages du Lorem 
-          Ipsum, et, plus récemment, par son inclusion dans des applications 
-          de mise en page de texte, comme Aldus PageMaker"
-        )
-      )
-    ),
-    
-    
-    # material task card
-    material_row(
-      material_column(
-        width = 6,
-        material_task_card(
-          depth = 5,
-          title = "Task Card",
-          date = "14 may 2018",
-          color = "cyan",
-          material_task_item(
-            id = 1, 
-            name = "task 1", 
-            date = "today",
-            tag_name = "tag", 
-            tag_color = "red",
-            checked = FALSE, 
-            disabled = FALSE
-          ),
-          material_task_item(
-            id = 2, 
-            name = "task 2", 
-            date = "today",
-            tag_name = "tag", 
-            tag_color = "orange",
-            checked = TRUE, 
-            disabled = FALSE
-          ),
-          material_task_item(
-            id = 3, 
-            name = "task 3", 
-            date = "today",
-            tag_name = "tag", 
-            tag_color = "yellow",
-            checked = TRUE, 
-            disabled = TRUE
-          )
-        )
-      )
-      
-    ),
-    
-    # material plans
-    material_row(
-      material_column(
-        width = 12,
-        material_plans(
-          material_plan_item(
-            title = "Basic",
-            value = "10$",
-            subtitle = "Free 1 month",
-            url = "http://www.google.com",
-            depth = 5,
-            color = material_gradient_color()[[15]],
-            material_plan_collection(
-              material_plan_collection_item(
-                description = "500 emails"
-              ),
-              material_plan_collection_item(
-                description = "Unlimited data"
-              ),
-              material_plan_collection_item(
-                description = "1 user"
-              )
             )
-          ),
-          material_plan_item(
-            title = "Pro",
-            value = "29$",
-            subtitle = "Most popular",
-            url = "http://www.google.com",
-            depth = NULL,
-            color = material_gradient_color()[[1]],
-            material_plan_collection(
-              material_plan_collection_item(
-                description = "2000 emails"
+            ),
+        
+        
+        # material task card
+        material_row(
+          material_column(
+            width = 6,
+            material_task_card(
+              depth = 5,
+              title = "Task Card",
+              date = "14 may 2018",
+              color = "cyan",
+              material_task_item(
+                id = 1, 
+                name = "task 1", 
+                date = "today",
+                tag_name = "tag", 
+                tag_color = "red",
+                checked = FALSE, 
+                disabled = FALSE
               ),
-              material_plan_collection_item(
-                description = "Unlimited data"
+              material_task_item(
+                id = 2, 
+                name = "task 2", 
+                date = "today",
+                tag_name = "tag", 
+                tag_color = "orange",
+                checked = TRUE, 
+                disabled = FALSE
               ),
-              material_plan_collection_item(
-                description = "10 users"
-              )
-            )
-          ),
-          material_plan_item(
-            title = "Premium",
-            value = "49$",
-            subtitle = "Get 20% off",
-            url = "http://www.google.com",
-            depth = NULL,
-            color = material_gradient_color()[[20]],
-            material_plan_collection(
-              material_plan_collection_item(
-                description = "10000 emails"
-              ),
-              material_plan_collection_item(
-                description = "Unlimited data"
-              ),
-              material_plan_collection_item(
-                description = "Unlimited user"
+              material_task_item(
+                id = 3, 
+                name = "task 3", 
+                date = "today",
+                tag_name = "tag", 
+                tag_color = "yellow",
+                checked = TRUE, 
+                disabled = TRUE
               )
             )
           )
-        )
-      )
-    ),
-    
-    
-    # material stat cards
-    material_row(
-      material_column(
-        width = 4,
-        material_stat_card(
-          title = "New Clients",
-          icon = "add_box",
-          value = 566,
-          trend = "more",
-          subtitle = "15% from yesterday",
-          color = "green"
-        )
-      ),
-      material_column(
-        width = 4,
-        material_stat_card(
-          title = "New invoice",
-          icon = "assignment",
-          value = 12,
-          trend = "less",
-          subtitle = "3% from yesterday",
-          color = "purple"
-        )
-      ),
-      material_column(
-        width = 4,
-        material_stat_card(
-          title = "Costs",
-          icon = "add_shopping_cart",
-          value = 2345,
-          trend = "equal",
-          subtitle = "same as yesterday",
-          color = "pink"
-        )
-      )
-    ),
-    
-    
-    # material gradient card
-    material_row(
-      material_column(
-        width = 4,
-        material_gradient_card(
-          src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/apple-watch.png",
-          title = "50% Off",
-          subtitle = "On apple watch",
-          color = material_gradient_color()[[11]]
-        )
-      ),
-      material_column(
-        width = 4,
-        material_gradient_card(
-          src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/printer.png",
-          title = "20% Off",
-          subtitle = "On canon Printer",
-          color = material_gradient_color()[[3]]
-        )
-      ),
-      material_column(
-        width = 4,
-        material_gradient_card(
-          src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/laptop.png",
-          title = "40% Off",
-          subtitle = "On apple macbook",
-          color = material_gradient_color()[[18]]
-        )
-      )
-    ),
-    
-    
-    # material info card
-    material_row(
-      material_column(
-        width = 4,
-        material_info_card(
-          icon = "timeline",
-          title = "Orders",
-          value = 690,
-          subtitle = "New",
-          extra = 6000,
-          color = material_gradient_color()[[15]]
-        )
-      ),
-      material_column(
-        width = 4,
-        material_info_card(
-          icon = "timeline",
-          title = "Orders",
-          value = 690,
-          subtitle = "New",
-          extra = 6000,
-          color = material_gradient_color()[[3]]
-        )
-      ),
-      material_column(
-        width = 4,
-        material_info_card(
-          icon = "timeline",
-          title = "Orders",
-          value = 690,
-          subtitle = "New",
-          extra = 6000,
-          color = material_gradient_color()[[23]]
+          
+        ),
+        
+        # material plans
+        material_row(
+          material_column(
+            width = 12,
+            material_plans(
+              material_plan_item(
+                title = "Basic",
+                value = "10$",
+                subtitle = "Free 1 month",
+                url = "http://www.google.com",
+                depth = 5,
+                color = material_gradient_color()[[15]],
+                material_plan_collection(
+                  material_plan_collection_item(
+                    description = "500 emails"
+                  ),
+                  material_plan_collection_item(
+                    description = "Unlimited data"
+                  ),
+                  material_plan_collection_item(
+                    description = "1 user"
+                  )
+                )
+              ),
+              material_plan_item(
+                title = "Pro",
+                value = "29$",
+                subtitle = "Most popular",
+                url = "http://www.google.com",
+                depth = NULL,
+                color = material_gradient_color()[[1]],
+                material_plan_collection(
+                  material_plan_collection_item(
+                    description = "2000 emails"
+                  ),
+                  material_plan_collection_item(
+                    description = "Unlimited data"
+                  ),
+                  material_plan_collection_item(
+                    description = "10 users"
+                  )
+                )
+              ),
+              material_plan_item(
+                title = "Premium",
+                value = "49$",
+                subtitle = "Get 20% off",
+                url = "http://www.google.com",
+                depth = NULL,
+                color = material_gradient_color()[[20]],
+                material_plan_collection(
+                  material_plan_collection_item(
+                    description = "10000 emails"
+                  ),
+                  material_plan_collection_item(
+                    description = "Unlimited data"
+                  ),
+                  material_plan_collection_item(
+                    description = "Unlimited user"
+                  )
+                )
+              )
+            )
+          )
+        ),
+        
+        
+        # material stat cards
+        material_row(
+          material_column(
+            width = 4,
+            material_stat_card(
+              title = "New Clients",
+              icon = "add_box",
+              value = 566,
+              trend = "more",
+              subtitle = "15% from yesterday",
+              color = "green"
+            )
+          ),
+          material_column(
+            width = 4,
+            material_stat_card(
+              title = "New invoice",
+              icon = "assignment",
+              value = 12,
+              trend = "less",
+              subtitle = "3% from yesterday",
+              color = "purple"
+            )
+          ),
+          material_column(
+            width = 4,
+            material_stat_card(
+              title = "Costs",
+              icon = "add_shopping_cart",
+              value = 2345,
+              trend = "equal",
+              subtitle = "same as yesterday",
+              color = "pink"
+            )
+          )
+        ),
+        
+        
+        # material gradient card
+        material_row(
+          material_column(
+            width = 4,
+            material_gradient_card(
+              src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/apple-watch.png",
+              title = "50% Off",
+              subtitle = "On apple watch",
+              color = material_gradient_color()[[11]]
+            )
+          ),
+          material_column(
+            width = 4,
+            material_gradient_card(
+              src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/printer.png",
+              title = "20% Off",
+              subtitle = "On canon Printer",
+              color = material_gradient_color()[[3]]
+            )
+          ),
+          material_column(
+            width = 4,
+            material_gradient_card(
+              src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/laptop.png",
+              title = "40% Off",
+              subtitle = "On apple macbook",
+              color = material_gradient_color()[[18]]
+            )
+          )
+        ),
+        
+        
+        # material info card
+        material_row(
+          material_column(
+            width = 4,
+            material_info_card(
+              icon = "timeline",
+              title = "Orders",
+              value = 690,
+              subtitle = "New",
+              extra = 6000,
+              color = material_gradient_color()[[15]]
+            )
+          ),
+          material_column(
+            width = 4,
+            material_info_card(
+              icon = "timeline",
+              title = "Orders",
+              value = 690,
+              subtitle = "New",
+              extra = 6000,
+              color = material_gradient_color()[[3]]
+            )
+          ),
+          material_column(
+            width = 4,
+            material_info_card(
+              icon = "timeline",
+              title = "Orders",
+              value = 690,
+              subtitle = "New",
+              extra = 6000,
+              color = material_gradient_color()[[23]]
+            )
+          )
         )
       )
     )
-    
   ),
   
   material_tab_content(
@@ -746,10 +763,6 @@ ui <- shinymaterialPlus::material_page(
     )
     
   )
-  
-  
-  
-  
   
   
   

@@ -141,7 +141,7 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     if (enable_footer) {
       footerCl <- "page-footer"
       footerCl <- if (!is.null(footer_color)) {
-        footerCl <- paste(footerCl, color)
+        footerCl <- paste(footerCl, footer_color)
       } else {
         footerCl <- paste(footerCl, "blue")
       }
@@ -172,6 +172,10 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     },
     
     # Source Materialize Javascript
+    shiny::includeScript(
+      system.file("js/jquery-2.1.1.min.js",
+                  package = "shinymaterialPlus")
+    ),
     shiny::includeScript(
       system.file(paste0("materialize/", materialize_version, "/js/materialize.min.js"),
                   package = "shinymaterial")
