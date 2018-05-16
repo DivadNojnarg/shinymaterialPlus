@@ -12,9 +12,14 @@
 material_scrollpsy <- function(...) {
   shiny::tags$div(
     class = "col hide-on-small-only m3 l2",
-    shiny::tags$ul(
-      class = "section table-of-contents",
-      ...
+    shiny::tags$div(
+      class = "toc-wrapper pinned",
+      style = "top: 400px;",
+      shiny::tags$ul(
+        style = "top: 200px;",
+        class = "section table-of-contents",
+        ...
+      )
     )
   )
 }

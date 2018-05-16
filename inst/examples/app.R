@@ -10,16 +10,67 @@ ui <- shinymaterialPlus::material_page(
     material_column(
       width = 6,
       leafletOutput("location")
+    ),
+    material_column(
+      width = 6,
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna 
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+      ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit 
+      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+      occaecat cupidatat non proident, sunt in culpa qui officia 
+      deserunt mollit anim id est laborum.",
+      br(),
+      br(),
+      material_row(
+        shinymaterialPlus::material_button(
+          input_id = "button1",
+          icon = "cloud",
+          label = "",
+          depth = 3,
+          color = "orange lighten-2",
+          pulse = TRUE,
+          floating = TRUE
+        ),
+        shinymaterialPlus::material_button(
+          input_id = "button2",
+          icon = "pin_drop",
+          label = "",
+          depth = 3,
+          color = "orange lighten-2",
+          pulse = TRUE,
+          floating = TRUE
+        ),
+        shinymaterialPlus::material_button(
+          input_id = "button2",
+          icon = "computer",
+          label = "",
+          depth = 3,
+          color = "orange lighten-2",
+          pulse = TRUE,
+          floating = TRUE
+        )
+      )
     )
   ),
   copyright = "Copyrights, if any",
   footer_extra = "2018",
   footer_color = "grey darken-4",
   
+  # left sidebar
   material_side_nav(
     fixed = FALSE,
     image_source = "https://i.pinimg.com/originals/ff/92/68/ff92685e660a2d347736f44cc7a11d38.jpg",
-    background_color = "white"
+    background_color = "white",
+    material_side_nav_tabs(
+      side_nav_tabs = c(
+        "Example Side-Nav Tab 1" = "example_side_nav_tab_1",
+        "Example Side-Nav Tab 2" = "example_side_nav_tab_2"
+      ),
+      icons = c("cloud", "donut_small"),
+      color = "black"
+    )
   ),
   
   # Define tabs
@@ -35,10 +86,23 @@ ui <- shinymaterialPlus::material_page(
     )
   ),
   
+  # banner
+  tags$head(
+    tags$style(
+      HTML(
+        '.parallax-container {
+        height: 200px;
+      }
+      '
+      )
+    )
+  ),
+  material_parallax("https://i.pinimg.com/originals/df/0a/3e/df0a3e2ec30abb1c92d145ef165b714f.gif"),
+  #material_parallax("http://hdqwalls.com/wallpapers/firewatch-game.jpg"),
+  
   material_tab_content(
     tab_id = "first_tab",
     tags$h3("Material Card Extensions"),
-    
     
     material_row(
       material_scrollpsy(
@@ -698,6 +762,7 @@ ui <- shinymaterialPlus::material_page(
   
   material_tab_content(
     tab_id = "sixth_tab",
+    tags$h3("Material media"),
     # material gallery
     material_row(
       material_column(
