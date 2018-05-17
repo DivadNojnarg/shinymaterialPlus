@@ -5,6 +5,8 @@
 #' @param title String. The title of the page.
 #' @param nav_bar_fixed Boolean. Should the nav bar remain fixed on the screen?
 #' @param nav_bar_color Color of the nav bar. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.
+#' @param right_nav Whether to enable the right sidebar or not. TRUE by default.
+#' @param right_nav_content Right sidebar content.
 #' @param enable_footer Whether to display the footer or not. TRUE by default.
 #' @param footer_content Footer content.
 #' @param footer_color Footer color. 
@@ -23,6 +25,7 @@
 #' )
 #' @export
 material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color = NULL, 
+                          right_nav = TRUE, right_nav_content = NULL,
                           enable_footer = TRUE, footer_content = NULL, footer_color = NULL,
                           copyright = NULL, footer_extra = NULL, background_color = "grey lighten-4", 
                           font_color = NULL, include_fonts = FALSE){
@@ -158,8 +161,9 @@ material_page <- function(..., title = "", nav_bar_fixed = FALSE, nav_bar_color 
     ),
     
     # rigth sidebar -----------------------------------------------------------
-    material_right_nav(),
-    
+    if (right_nav) {
+      right_nav_content
+    },
     
     # footer ------------------------------------------------------------------
     if (enable_footer) {

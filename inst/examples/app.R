@@ -6,6 +6,36 @@ library(leaflet)
 ui <- shinymaterialPlus::material_page(
   title = "shinymaterialPlus V0.1",
   nav_bar_color = "grey darken-4",
+  right_nav = TRUE,
+  right_nav_content = material_right_nav(
+    tabList = material_right_nav_TabList(
+      material_right_nav_TabItem(
+        id = "activity",
+        tabIcon = "graphic_eq"
+      ), 
+      material_right_nav_TabItem(
+        id = "chatapp",
+        tabIcon = "face"
+      ),
+      material_right_nav_TabItem(
+        id = "settings",
+        tabIcon = "settings"
+      )
+    ),
+    material_right_nav_TabContent(
+      id = "activity",
+      tabName = "Tab 1"
+    ),
+    material_right_nav_TabContent(
+      id = "chatapp",
+      tabName = "Tab 2"
+    ),
+    material_right_nav_TabContent(
+      id = "settings",
+      tabName = "Tab 3"
+    )
+  ),
+  enable_footer = TRUE,
   footer_content = material_row(
     material_column(
       width = 6,

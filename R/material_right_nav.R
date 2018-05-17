@@ -1,11 +1,49 @@
 #' Create a shinymaterial right sidebar
 #' 
+#' @param ... Slot for material_right_nav_TabContent.
+#' @param tabList Slot for material_right_nav_TabList.
+#' 
 #' @examples
 #' material_right_nav(
-#'   
+#'   tabList = material_right_nav_TabList(
+#'    material_right_nav_TabItem(
+#'     id = "activity",
+#'     tabIcon = "graphic_eq"
+#'    ), 
+#'    material_right_nav_TabItem(
+#'     id = "chatapp",
+#'     tabIcon = "face"
+#'    ),
+#'    material_right_nav_TabItem(
+#'     id = "settings",
+#'     tabIcon = "settings"
+#'    )
+#'   ),
+#'   material_right_nav_TabContent(
+#'    id = "activity",
+#'    tabName = "Tab 1"
+#'   ),
+#'   material_right_nav_TabContent(
+#'    id = "chatapp",
+#'    tabName = "Tab 2"
+#'   ),
+#'   material_right_nav_TabContent(
+#'    id = "settings",
+#'    tabName = "Tab 3"
+#'   )
 #' )
 #' @export
-material_right_nav <- function() {
+material_right_nav <- function(..., tabList = NULL) {
+  
+  # set the first tab to active if there
+  # are more than one tab.
+  # children <- tabList$children
+  # if (length(children) > 1) {
+  #   first_grandchild <- children[[1]]$children
+  #   first_grandchild$attribs$class <- "active"
+  #   
+  # }
+  
   shiny::tags$aside(
     id = "right-sidebar-nav",
     shiny::tags$ul(
@@ -15,70 +53,15 @@ material_right_nav <- function() {
       
       shiny::tags$li(
         class = "li-hover",
-        # tabs bar
         shiny::tags$div(
           class = "row",
-          
+          # tabs bar
           shiny::tags$div(
             class = "col s12 border-bottom-1 mt-5",
-            
-            # tabs
-            shiny::tags$ul(
-              class = "tabs",
-              
-              # tab 1
-              shiny::tags$li(
-                class = "tab col s4",
-                shiny::tags$a(
-                  href = "#activity",
-                  class = "active",
-                  shiny::tags$span(class = "material-icons", "graphic_eq")
-                )
-              ),
-              
-              # tab 2
-              shiny::tags$li(
-                class = "tab col s4",
-                shiny::tags$a(
-                  href = "#chatapp",
-                  shiny::tags$span(class = "material-icons", "face")
-                )
-              ),
-              
-              # tab 3
-              shiny::tags$li(
-                class = "tab col s4",
-                shiny::tags$a(
-                  href = "#settings",
-                  shiny::tags$span(class = "material-icons", "settings")
-                )
-              )
-            )
+            tabList
           ),
-          
           # tab content
-          
-          # tab 1
-          shiny::tags$div(
-            id = "activity",
-            class = "col s12 active",
-            shiny::tags$h6(class = "mt-5 mb-3 ml-3", "Tab 1")
-          ),
-          
-          # tab 2
-          shiny::tags$div(
-            id = "chatapp",
-            class = "col s12 active",
-            shiny::tags$h6(class = "mt-5 mb-3 ml-3", "Tab 2")
-          ),
-          
-          # tab 3
-          shiny::tags$div(
-            id = "settings",
-            class = "col s12 active",
-            shiny::tags$h6(class = "mt-5 mb-3 ml-3", "Tab 3")
-          )
-          
+          ...
         )
       ),
       
@@ -95,5 +78,56 @@ material_right_nav <- function() {
       )
       
     )
+  )
+}
+
+
+
+#' Create a shinymaterial right sidebar tab list
+#' 
+#' @param ... Slot for material_right_nav_TabItem.
+#' 
+#' @export
+material_right_nav_TabList <- function(...) {
+    shiny::tags$ul(
+      class = "tabs",
+      ...
+    )
+}
+
+
+
+#' Create a shinymaterial right sidebar tab list item
+#' 
+#' @param id Unique item id. String.
+#' @param tabIcon Tab icon.
+#' 
+#' @export
+material_right_nav_TabItem <- function(id, tabIcon = NULL) {
+  shiny::tags$li(
+    class = "tab col s4",
+    shiny::tags$a(
+      href = paste0("#", id),
+      shiny::tags$span(class = "material-icons", tabIcon)
+    )
+  )
+}
+
+
+
+
+#' Create a shinymaterial right sidebar tab content
+#' 
+#' @param ... Any UI element, such as sliders, checkboxes, text, ...
+#' @param id Unique item id. Should correspond to the id given in material_right_nav_TabItem.
+#' @param tabName Tab name.
+#' 
+#' @export
+material_right_nav_TabContent <- function(..., id, tabName = NULL) {
+  shiny::tags$div(
+    id = id,
+    class = "col s12 active",
+    shiny::tags$h6(class = "mt-5 mb-3 ml-3", tabName),
+    ...
   )
 }

@@ -4,13 +4,43 @@
 \alias{material_right_nav}
 \title{Create a shinymaterial right sidebar}
 \usage{
-material_right_nav()
+material_right_nav(..., tabList = NULL)
+}
+\arguments{
+\item{...}{Slot for material_right_nav_TabContent.}
+
+\item{tabList}{Slot for material_right_nav_TabList.}
 }
 \description{
 Create a shinymaterial right sidebar
 }
 \examples{
 material_right_nav(
-  
+  tabList = material_right_nav_TabList(
+   material_right_nav_TabItem(
+    id = "activity",
+    tabIcon = "graphic_eq"
+   ), 
+   material_right_nav_TabItem(
+    id = "chatapp",
+    tabIcon = "face"
+   ),
+   material_right_nav_TabItem(
+    id = "settings",
+    tabIcon = "settings"
+   )
+  ),
+  material_right_nav_TabContent(
+   id = "activity",
+   tabName = "Tab 1"
+  ),
+  material_right_nav_TabContent(
+   id = "chatapp",
+   tabName = "Tab 2"
+  ),
+  material_right_nav_TabContent(
+   id = "settings",
+   tabName = "Tab 3"
+  )
 )
 }

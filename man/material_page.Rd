@@ -5,8 +5,9 @@
 \title{Create a shinymaterial page}
 \usage{
 material_page(..., title = "", nav_bar_fixed = FALSE,
-  nav_bar_color = NULL, enable_footer = TRUE, footer_content = NULL,
-  footer_color = NULL, copyright = NULL, footer_extra = NULL,
+  nav_bar_color = NULL, right_nav = TRUE, right_nav_content = NULL,
+  enable_footer = TRUE, footer_content = NULL, footer_color = NULL,
+  copyright = NULL, footer_extra = NULL,
   background_color = "grey lighten-4", font_color = NULL,
   include_fonts = FALSE)
 }
@@ -18,6 +19,10 @@ material_page(..., title = "", nav_bar_fixed = FALSE,
 \item{nav_bar_fixed}{Boolean. Should the nav bar remain fixed on the screen?}
 
 \item{nav_bar_color}{Color of the nav bar. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.}
+
+\item{right_nav}{Whether to enable the right sidebar or not. TRUE by default.}
+
+\item{right_nav_content}{Right sidebar content.}
 
 \item{enable_footer}{Whether to display the footer or not. TRUE by default.}
 
