@@ -38,11 +38,9 @@ ui <- shinymaterialPlus::material_page(
   enable_footer = TRUE,
   footer_content = material_row(
     material_column(
-      width = 6,
       leafletOutput("location")
     ),
     material_column(
-      width = 6,
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
       sed do eiusmod tempor incididunt ut labore et dolore magna 
       aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
@@ -141,14 +139,15 @@ ui <- shinymaterialPlus::material_page(
         material_scrollspy_item(target = "part3")
       ),
       material_column(
-        width = 10,
+        m_width = 10,
+        l_width = 10,
+        xl_width = 10,
         # Material Card Plus
         div(
           id = "part1", 
           class = "section scrollspy",
           material_row(
             material_column(
-              width = 6,
               shinymaterialPlus::material_card(
                 title = "Example Card",
                 depth = NULL,
@@ -175,7 +174,6 @@ ui <- shinymaterialPlus::material_page(
             
             # Material Profile card
             material_column(
-              width = 6,
               material_profile_card(
                 depth = 5,
                 header_background = "https://images3.alphacoders.com/601/601818.jpg",
@@ -192,7 +190,6 @@ ui <- shinymaterialPlus::material_page(
           
           material_row(
             material_column(
-              width = 6,
               shinymaterialPlus::material_card(
                 title = "Card with footer",
                 depth = NULL,
@@ -204,11 +201,11 @@ ui <- shinymaterialPlus::material_page(
                 footer = tagList(
                   material_row(
                     material_column(
-                      width = 6,
+                      s_width = 6,
                       shiny::a(href = "http://www.google.fr", "Link 1")
                     ),
                     material_column(
-                      width = 6,
+                      s_width = 6,
                       shiny::a(href = "http://www.google.fr", "Link 2")
                     )
                   )
@@ -225,7 +222,9 @@ ui <- shinymaterialPlus::material_page(
           material_row(
             # always set width to 12
             material_column(
-              width = 12,
+              m_width = 12,
+              l_width = 12,
+              xl_width = 12,
               # horizontal card
               material_card_horizontal(
                 hoverable = TRUE,
@@ -246,7 +245,6 @@ ui <- shinymaterialPlus::material_page(
         # material blog card
         material_row(
           material_column(
-            width = 6,
             material_blog_card(
               hoverable = TRUE,
               src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
@@ -270,7 +268,6 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
-            width = 6,
             material_blog_card(
               src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
               author_name = "Jean Eude",
@@ -304,7 +301,6 @@ ui <- shinymaterialPlus::material_page(
         # material task card
         material_row(
           material_column(
-            width = 6,
             material_task_card(
               depth = 5,
               title = "Task Card",
@@ -345,7 +341,9 @@ ui <- shinymaterialPlus::material_page(
         # material plans
         material_row(
           material_column(
-            width = 12,
+            m_width = 12,
+            l_width = 12,
+            xl_width = 12,
             material_plans(
               material_plan_item(
                 title = "Basic",
@@ -412,7 +410,9 @@ ui <- shinymaterialPlus::material_page(
         # material stat cards
         material_row(
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_stat_card(
               title = "New Clients",
               icon = "add_box",
@@ -423,7 +423,9 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_stat_card(
               title = "New invoice",
               icon = "assignment",
@@ -434,7 +436,9 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_stat_card(
               title = "Costs",
               icon = "add_shopping_cart",
@@ -450,7 +454,9 @@ ui <- shinymaterialPlus::material_page(
         # material gradient card
         material_row(
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_gradient_card(
               src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/apple-watch.png",
               title = "50% Off",
@@ -459,7 +465,9 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_gradient_card(
               src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/printer.png",
               title = "20% Off",
@@ -468,7 +476,9 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_gradient_card(
               src = "https://pixinvent.com/materialize-material-design-admin-template/images/icon/laptop.png",
               title = "40% Off",
@@ -482,7 +492,9 @@ ui <- shinymaterialPlus::material_page(
         # material info card
         material_row(
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_info_card(
               icon = "timeline",
               title = "Orders",
@@ -493,7 +505,9 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_info_card(
               icon = "timeline",
               title = "Orders",
@@ -504,7 +518,9 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
-            width = 4,
+            m_width = 4,
+            l_width = 4,
+            xl_width = 4,
             material_info_card(
               icon = "timeline",
               title = "Orders",
@@ -526,7 +542,6 @@ ui <- shinymaterialPlus::material_page(
     # Material Collection
     material_row(
       material_column(
-        width = 6,
         material_collection(
           header = TRUE,
           material_collection_header(
@@ -554,7 +569,6 @@ ui <- shinymaterialPlus::material_page(
         )
       ),
       material_column(
-        width = 6,
         material_collection(
           header = TRUE,
           depth = 5,
@@ -593,13 +607,11 @@ ui <- shinymaterialPlus::material_page(
     # Material loader
     material_row(
       material_column(
-        width = 6,
         material_loader()
       ),
       
       # material buttons with pulse and floating
       material_column(
-        with = 6,
         shinymaterialPlus::material_button(
           input_id = "example_button",
           label = "Button",
@@ -640,7 +652,6 @@ ui <- shinymaterialPlus::material_page(
     # material blockquote
     material_row(
       material_column(
-        width = 6,
         material_blockquote(
           "This is an example quotation that uses the blockquote tag."
         )
@@ -651,7 +662,6 @@ ui <- shinymaterialPlus::material_page(
       
       # material chip
       material_column(
-        width = 6,
         material_chip(
           src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-1.png",
           chip_name = "John Doe",
@@ -661,7 +671,6 @@ ui <- shinymaterialPlus::material_page(
       
       # material icon
       material_column(
-        width = 6,
         material_icon("play_arrow", circle = TRUE, color = "red", position = NULL)
       )
     ),
@@ -669,7 +678,6 @@ ui <- shinymaterialPlus::material_page(
     # material progress
     material_row(
       material_column(
-        width = 6,
         material_progress(
           value = "80"
         ),
@@ -694,7 +702,9 @@ ui <- shinymaterialPlus::material_page(
     # Material collapsible
     material_row(
       material_column(
-        width = 6,
+        m_width = 6,
+        l_width = 6,
+        xl_width = 6,
         material_collapsible(
           type = "popout",
           material_collapsible_item(
@@ -725,7 +735,9 @@ ui <- shinymaterialPlus::material_page(
         )
       ),
       material_column(
-        width = 6,
+        m_width = 6,
+        l_width = 6,
+        xl_width = 6,
         material_collapsible(
           material_collapsible_item(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -761,7 +773,9 @@ ui <- shinymaterialPlus::material_page(
     # Material timeline
     material_row(
       material_column(
-        width = 6,
+        m_width = 12,
+        l_width = 12,
+        xl_width = 12,
         material_timeline(
           material_timeline_item(
             material_timeline_card(
@@ -796,7 +810,6 @@ ui <- shinymaterialPlus::material_page(
     # material gallery
     material_row(
       material_column(
-        width = 6,
         material_gallery(
           fullscreen = FALSE,
           material_gallery_item(
@@ -819,7 +832,6 @@ ui <- shinymaterialPlus::material_page(
     # material videos
     material_row(
       material_column(
-        width = 6,
         material_video(
           src = "http://www.youtube.com/embed/Q8TXgCzxEnw?rel=0",
           responsive = FALSE,
@@ -829,7 +841,6 @@ ui <- shinymaterialPlus::material_page(
         )
       ),
       material_column(
-        width = 6,
         material_video(
           src = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
           responsive = TRUE
@@ -840,7 +851,6 @@ ui <- shinymaterialPlus::material_page(
     # material media
     material_row(
       material_column(
-        width = 6,
         material_media(
           src = "https://materializecss.com/images/sample-1.jpg",
           width = "650"
