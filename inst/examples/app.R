@@ -148,6 +148,9 @@ ui <- shinymaterialPlus::material_page(
           class = "section scrollspy",
           material_row(
             material_column(
+              m_width = 6,
+              l_width = 6,
+              xl_width = 6,
               shinymaterialPlus::material_card(
                 title = "Example Card",
                 depth = NULL,
@@ -174,6 +177,9 @@ ui <- shinymaterialPlus::material_page(
             
             # Material Profile card
             material_column(
+              m_width = 6,
+              l_width = 6,
+              xl_width = 6,
               material_profile_card(
                 depth = 5,
                 header_background = "https://images3.alphacoders.com/601/601818.jpg",
@@ -190,6 +196,9 @@ ui <- shinymaterialPlus::material_page(
           
           material_row(
             material_column(
+              m_width = 6,
+              l_width = 6,
+              xl_width = 6,
               shinymaterialPlus::material_card(
                 title = "Card with footer",
                 depth = NULL,
@@ -245,6 +254,9 @@ ui <- shinymaterialPlus::material_page(
         # material blog card
         material_row(
           material_column(
+            m_width = 6,
+            l_width = 6,
+            xl_width = 6,
             material_blog_card(
               hoverable = TRUE,
               src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
@@ -268,6 +280,9 @@ ui <- shinymaterialPlus::material_page(
             )
           ),
           material_column(
+            m_width = 6,
+            l_width = 6,
+            xl_width = 6,
             material_blog_card(
               src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-7.png",
               author_name = "Jean Eude",
@@ -301,6 +316,9 @@ ui <- shinymaterialPlus::material_page(
         # material task card
         material_row(
           material_column(
+            m_width = 6,
+            l_width = 6,
+            xl_width = 6,
             material_task_card(
               depth = 5,
               title = "Task Card",
