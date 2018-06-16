@@ -1,6 +1,7 @@
 library(shiny)
 library(shinymaterial)
 library(leaflet)
+library(shinymaterialPlus)
 
 # Wrap shinymaterial apps in material_page
 ui <- shinymaterialPlus::material_page(
