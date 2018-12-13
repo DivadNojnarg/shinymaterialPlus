@@ -1,0 +1,8 @@
+.shiny-material-button,
+.shiny-material-switch{
+     margin-top: 14px
+ }
+
+select[name$=_length] {
+    display: block !important;
+}

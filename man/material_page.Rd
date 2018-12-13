@@ -4,39 +4,21 @@
 \alias{material_page}
 \title{Create a shinymaterial page}
 \usage{
-material_page(..., title = "", nav_bar_fixed = FALSE,
-  nav_bar_color = NULL, right_nav = TRUE, right_nav_content = NULL,
-  enable_footer = TRUE, footer_content = NULL, footer_color = NULL,
-  copyright = NULL, footer_extra = NULL,
-  background_color = "grey lighten-4", font_color = NULL,
+material_page(..., enable_footer = TRUE, navbar = NULL,
+  footer = NULL, background_color = "grey lighten-4",
   include_fonts = FALSE)
 }
 \arguments{
 \item{...}{The UI elements to place in the page.}
 
-\item{title}{String. The title of the page.}
-
-\item{nav_bar_fixed}{Boolean. Should the nav bar remain fixed on the screen?}
-
-\item{nav_bar_color}{Color of the nav bar. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.}
-
-\item{right_nav}{Whether to enable the right sidebar or not. TRUE by default.}
-
-\item{right_nav_content}{Right sidebar content.}
-
 \item{enable_footer}{Whether to display the footer or not. TRUE by default.}
 
-\item{footer_content}{Footer content.}
+\item{navbar}{Slot for \link{material_navbar}.}
 
-\item{footer_color}{Footer color.}
+\item{footer}{Slot for \link{material_footer}.}
 
-\item{copyright}{Copyright text in footer.}
-
-\item{footer_extra}{Display additional text on the right of copyrights.}
-
-\item{background_color}{Page background color. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors.}
-
-\item{font_color}{String. The title font color. Leave blank for the default color. Visit \url{http://materializecss.com/color.html} for a list of available colors. \emph{Title color requires using word forms of colors (e.g. "deep-purple"). Also, lighten or darken effects do not work on title colors.}}
+\item{background_color}{Page background color. Leave blank for the default color. 
+Visit \url{http://materializecss.com/color.html} for a list of available colors.}
 
 \item{include_fonts}{Boolean. Should the material font files be included? (This will place the font sources in a directory 'www', at the same location as the app code.)}
 }
@@ -45,9 +27,9 @@ Build a shinymaterial page.
 }
 \examples{
 material_page(
-  title = "Example Title",
-  nav_bar_fixed = TRUE,
-  nav_bar_color = "red lighten-2",
+  material_navbar(
+   
+  )
   background_color = "blue lighten-4",
   shiny::tags$h1("Page Content")
 )

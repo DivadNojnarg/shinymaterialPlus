@@ -1,3 +1,18 @@
+#' Create a material blockquote
+#'
+#' @param ... Any element, such as text.
+#' 
+#' @examples
+#' material_blockquote(
+#'  "This is an example quotation that uses the blockquote tag."
+#' )
+#' @export
+material_blockquote <- function(...) {
+  shiny::tags$blockquote(...)
+}
+
+
+
 #' Create a column to organize UI content
 #'
 #' UI content can be placed in columns to organize items on a page.
@@ -25,4 +40,39 @@ material_column <- function(..., s_width = 12, m_width = 6,
     class = paste0(cl, " offset-s0 offset-m", offset),
     ...
   )
+}
+
+
+
+
+#' Create a material container div
+#'
+#' To center elements inside
+#' @param ... Any UI element.
+#' @examples
+#' material_container(
+#'  material_card(
+#'   title = "Example Card",
+#'   depth = 5,
+#'   shiny::tags$h5("Card Content")
+#'  )
+#' )
+#' @export
+material_container <- function(...) {
+  shiny::tags$div(class = "container", ...)
+} 
+
+
+
+
+#' Create an horizontal divider
+#'
+#' @note Perfect to insert in a card.
+#' 
+#' @examples
+#' material_divider()
+#' 
+#' @export
+material_divider <- function() {
+  shiny::tags$div(class = "divider mt-5")
 }
