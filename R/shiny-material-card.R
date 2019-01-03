@@ -90,56 +90,6 @@ material_card <- function(title, ..., size = "medium", depth = NULL,
 }
 
 
-#' Create a card that is horizontally displayed
-#'
-#' UI content can be placed in cards to organize items on a page.
-#' 
-#' @param ... Any element.
-#' @param title Card Title.
-#' @param src Image path, if any.
-#' @param depth Integer. The amount of depth of the card. The value should be between 0 and 5. Leave empty for the default depth.
-#' @param hoverable Whether to hover the card. TRUE by default.
-#' 
-#' @note Render well if embeded in a material_column of width 12.
-#  
-#' @examples
-#' material_card_horizontal(
-#'   src = "https://pixinvent.com/materialize-material-design-admin-template/images/gallary/21.png",
-#'   title = "Card Title",
-#'   "It is a long established fact that a reader will be distracted 
-#'   by the readable content of a page when looking at its layout. 
-#'   The point of using Lorem Ipsum is that it has a more-or-less 
-#'   normal distribution of letters, as opposed to using 'Content here, 
-#'   Packages and web page editors now use Lorem Ipsum as their default 
-#'   model text, and a search for 'lorem ipsum' will uncover. 
-#'   Web page editors now use Lorem Ipsum as their default"
-#' )
-#' @export
-material_card_horizontal <- function(..., title = NULL, src = NULL,
-                                     depth = NULL, hoverable = FALSE) {
-  
-  cl <- "card horizontal"
-  if (!is.null(depth)) cl <- paste0(cl, " z-depth-", depth)
-  if (isTRUE(hoverable)) cl <- paste(cl, "hoverable")
-  
-  shiny::tags$div(
-    class = cl,
-    shiny::tags$div(
-      class = "card-image width-65",
-      shiny::tags$img(src = src)
-    ),
-    shiny::tags$div(
-      class = "card-stacked",
-      shiny::tags$div(
-        class = "card-content",
-        shiny::tags$h5(title),
-        shiny::tags$p(...)
-      )
-    )
-  )
-}
-
-
 
 
 #' Create a slot for a card tab content

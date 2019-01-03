@@ -124,10 +124,12 @@ ui <- shinymaterialPlus::material_page(
               ),
               material_card_tabs(id = "example_tab_1", "tab 1"),
               material_card_tabs(id = "example_tab_2", "tab 2"),
-              material_badge(1, custom_caption = TRUE),
-              material_badge(content = "Test", color = "red", type = "new"),
               activator = TRUE,
-              extra = "More info here!",
+              extra = tagList(
+                "More info here!",
+                material_badge(1, custom_caption = TRUE),
+                material_badge(content = "Test", color = "red", type = "new")
+              ),
               #color = "deep-orange",
               image = TRUE,
               src = "http://www.oxygenna.com/wp-content/uploads/2015/11/18.jpg"
@@ -291,18 +293,15 @@ ui <- shinymaterialPlus::material_page(
     
     material_row(
       
-      # material chip
-      material_column(
-        material_chip(
-          src = "https://pixinvent.com/materialize-material-design-admin-template/images/avatar/avatar-1.png",
-          chip_name = "John Doe",
-          material_icon("close", closable = TRUE)
-        )
-      ),
-      
       # material icon
       material_column(
-        material_icon("play_arrow", circle = TRUE, color = "red", position = NULL)
+        material_icon(
+          "play_arrow", 
+          circle = TRUE, 
+          color = "red", 
+          position = NULL,
+          size = "large"
+        )
       )
     ),
     
