@@ -27,6 +27,9 @@ addDeps <- function(x) {
   material_page_js <- "shiny-material-page.js"
   init_js <- "init.js"
   
+  # material icons
+  material_icons_css <- "material-icons.css"
+  
   materializeDeps <- list(
     # jquery UI deps for sortable elements
     htmltools::htmlDependency(
@@ -51,6 +54,13 @@ addDeps <- function(x) {
         init_js
       ),
       stylesheet = c(timeline_css, material_page_css)
+    ),
+    # material icons
+    htmltools::htmlDependency(
+      name = "materialicons",
+      version = as.character(utils::packageVersion("shinymaterialPlus")),
+      src = c(file = system.file("shinymaterialPlus-0.1.0", package = "shinymaterialPlus")),
+      stylesheet = material_icons_css
     )
   )
   appendDependencies(x, materializeDeps)
